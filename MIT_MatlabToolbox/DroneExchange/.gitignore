@@ -1,3 +1,4 @@
 *.mat
-/imgs/*.ppm
-/*.bin
+/imgs/*
+/ptimes/*
+
