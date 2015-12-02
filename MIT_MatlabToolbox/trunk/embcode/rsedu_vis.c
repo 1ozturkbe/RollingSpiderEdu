@@ -423,7 +423,50 @@ void RSEDU_image_processing(void * buffer)
 
     }
 
+    if (counter % 15 == 0)
+    {  
+    float ymoment = 0;
+    float ymass = 0;
+    float cob;
+    float y;
+    float middleY;
 
+    // Calculate center of white: cob = ymoment/ymass - nx/2
+    // y is the luminance
+    // Cutoff on 100 (y = 155). Seems like a good choice.
+    // 255 - luminance give black value
+    for(i = 0; i < nx; i++)
+    {
+        y = 255-(float)image[i].y1;
+        if (y > 155){
+        ymoment += y*i;
+        ymass += y;
+        }
+    }
+
+    middleY = (float)image[60*80+40].y1;
+
+    cob = ymoment/ymass - nx/2;
+
+    camerayaw = atan2(cob*4,ny); // camerayaw = invtan1(2*cow/(ny/2)) because of scaling of x values
+    
+    printf("Whiteness of middle pixel: %f \n",middleY);
+     
+    printf("Center of white: %f \t \t Camerayaw (degrees): %f \n",cob,camerayaw*180/3.14);
+    
+        //compile data
+        vis_data[0] = -99;
+            vis_data[1] = -99;
+            vis_data[2] = -99;
+            vis_data[3] = camerayaw;
+
+            vis_fifo = open("/tmp/vis_fifo", O_WRONLY);
+            if(vis_fifo)
+            {
+                write(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
+                close(vis_fifo);
+            }
+    }
 
 
     usleep(4000);
@@ -432,6 +475,4 @@ void RSEDU_image_processing(void * buffer)
     //----------
     ptimer_stopstore(FEAT_TIME, counter, start, ptfile);
     //----------
-
-
 }
