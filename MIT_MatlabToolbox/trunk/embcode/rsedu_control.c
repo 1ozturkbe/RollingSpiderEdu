@@ -1277,17 +1277,17 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
 
             // Erlend
 
-        
-
+        	
+if (vis_fifo> 0){
             if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
             {
               
-                DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3];
+                DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/10;
      		if (counter % 200)
               		printf("Attitude reference: %f", (double)vis_data[3]);
 
             }
-
+}
 
             if((DroneRS_Compensator_U_attRS_refin[1] == 0.0) && (DroneRS_Compensator_U_attRS_refin[2] == 0.0))
                 //control position + velocity if no specific reference attitude given (yaw angle ok)
