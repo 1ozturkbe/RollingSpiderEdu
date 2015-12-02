@@ -1,0 +1,6 @@
+*.[ohc]
+*.mat
+
+!rsedu_vis.c
+!rsedu_control.c
+
