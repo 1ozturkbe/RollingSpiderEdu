@@ -1247,7 +1247,7 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
         //3.2 transition to actual flight: enable altitude-control setting
         else if(counter == calibCycles + takeoffCycles)
         {
-            DroneRS_Compensator_U_pos_refin[2] = -1.1;
+            DroneRS_Compensator_U_pos_refin[2] = -1.5;
         }
         //3.3 actual flight setting
         else if(counter < onCycles)
@@ -1282,9 +1282,10 @@ if (vis_fifo> 0){
             if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
             {
               
-                DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/2;
-     		if (counter % 200)
-              		printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
+                DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3];
+
+     		//if (counter % 200)
+              	//	printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
 
             }
 }

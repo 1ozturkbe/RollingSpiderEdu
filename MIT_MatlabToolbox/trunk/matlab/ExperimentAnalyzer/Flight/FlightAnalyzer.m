@@ -99,8 +99,8 @@ plot(RSrun_states_estim(:,1),RSrun_states_estim(:,5:7),'.-'); hold all;
 plot(RSrun_posVIS(visUpdatesAvlble,1),RSrun_posVIS(visUpdatesAvlble,5),'o');
 plot(RSrun_attRS_ref(:,1),RSrun_attRS_ref(:,2:end));
 ylabel 'attitude estimate (in RS system)'
-legend({'yaw' 'pitch' 'roll' 'yaw_{vis}' 'yaw_{ref}' 'pitch_{ref}' 'roll_{ref}'});
-ylim([-0.3 0.3])
+legend({'yaw' 'pitch' 'roll' 'yaw_{vis}' 'pitch_{ref}' 'yaw_{ref}' 'roll_{ref}'});
+ylim([-0.5 0.5])
 
 %motorcommands
 h(4)=subplot(4,1,4);

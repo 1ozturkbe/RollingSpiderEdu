@@ -29,7 +29,7 @@
 
 static double roll_ref = 0;
 static double pitch_ref = 0;
-static double alt_ref = -1.1;
+static double alt_ref = -1.5;
 static double yaw_ref = 0;
 static double follow = 0;
 static double resetXY = 0;
