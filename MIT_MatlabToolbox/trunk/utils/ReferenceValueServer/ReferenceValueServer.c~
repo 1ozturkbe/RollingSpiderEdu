@@ -28,13 +28,11 @@
 #include <termios.h>
 
 static double roll_ref = 0;
-static double pitch_ref = 5;
+static double pitch_ref = 0;
 static double alt_ref = -1.1;
 static double yaw_ref = 0;
-
-
-
-
+static double follow = 0;
+static double resetXY = 0;
 
 char getch() {
         char buf = 0;
@@ -137,6 +135,9 @@ while(runcmd==1)
   	  case 'j': yaw_ref -= 0.2; break;
   	  case 'l': yaw_ref += 0.2; break;
   	  case 'e': runcmd = 0; break;
+	  case 'q': follow = 1; break; 
+	  case 'z': follow = 0; break; 
+	  case 'r': resetXY = 1; break;
   }
 
   	  //Saturation
