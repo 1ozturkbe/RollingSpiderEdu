@@ -423,7 +423,7 @@ void RSEDU_image_processing(void * buffer)
 
     }
 
-    if (counter % 15 == 0)
+    if (counter % 5 == 0)
     {  
     float ymoment = 0;
     float ymass = 0;
@@ -438,11 +438,11 @@ void RSEDU_image_processing(void * buffer)
     for(i = 0; i < nx; i++)
     {
         y = 255-(float)image[i].y1;
-        if (y > 155){
-        ymoment += y*i;
-        ymass += y;
+        //if (y > 185){
+        //ymoment += y*i;
+        //ymass += y;
         }
-    }
+    
 
     middleY = (float)image[60*80+40].y1;
 
@@ -450,9 +450,12 @@ void RSEDU_image_processing(void * buffer)
 
     camerayaw = atan2(cob*4,ny); // camerayaw = invtan1(2*cow/(ny/2)) because of scaling of x values
     
+    if (counter % 60 == 0)
+    { 
     printf("Whiteness of middle pixel: %f \n",middleY);
      
-    printf("Center of white: %f \t \t Camerayaw (degrees): %f \n",cob,camerayaw*180/3.14);
+    printf("Center of black: %f \nCamerayaw: %f \n",cob,camerayaw*180/3.14);
+    }
     
         //compile data
         vis_data[0] = -99;
