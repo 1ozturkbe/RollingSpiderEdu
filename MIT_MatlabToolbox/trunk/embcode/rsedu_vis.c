@@ -423,7 +423,7 @@ void RSEDU_image_processing(void * buffer)
 
     }
 
-    if (counter % 5 == 0)
+    if (counter % 1 == 0)
     {  
     float ymoment = 0;
     float ymass = 0;
@@ -438,16 +438,17 @@ void RSEDU_image_processing(void * buffer)
     // 255 - luminance give black value
     for(i = 0; i < nx; i++)
     {
-        ytemp = 255-(float)image[i].y1;
-if (ytemp>y){
-	y = ytemp;
-	cob = i-nx/2;
-	}
+	 	ytemp = 255-(float)image[i].y1;
+	 	
+		if (ytemp>y){
+		y = ytemp;
+		cob = i-nx/2;
+		}
 
-        //if (y > 185){
-        //ymoment += y*i;
-        //ymass += y;
-        //}
+        /*if (y > 185){
+        ymoment += y*i;
+        ymass += y;
+        }*/
         }
 
 
