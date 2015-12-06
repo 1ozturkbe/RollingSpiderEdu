@@ -400,7 +400,7 @@ void RSEDU_image_processing(void * buffer)
     //save image
     //-----------
 
-    if((FEAT_IMSAVE == 1) && ((counter % 6) == 0) && (NULL != image)) //@10Hz
+    if((FEAT_IMSAVE == 1) && ((counter % 30) == 0) && (NULL != image)) //@10Hz
     {
         FILE* data;
         char filename[15];
@@ -423,12 +423,13 @@ void RSEDU_image_processing(void * buffer)
 
     }
 
-    if (counter % 15 == 0)
+    if (counter % 1 == 0)
     {  
     float ymoment = 0;
     float ymass = 0;
     float cob;
-    float y;
+    float y=0;
+    float ytemp;
     float middleY;
 
     // Calculate center of white: cob = ymoment/ymass - nx/2
@@ -437,26 +438,38 @@ void RSEDU_image_processing(void * buffer)
     // 255 - luminance give black value
     for(i = 0; i < nx; i++)
     {
-        y = 255-(float)image[i].y1;
-        if (y > 155){
+	 	ytemp = 255-(float)image[i].y1;
+	 	
+		if (ytemp>y){
+		y = ytemp;
+		cob = i-nx/2;
+		}
+
+        /*if (y > 185){
         ymoment += y*i;
         ymass += y;
+        }*/
         }
-    }
+
+
+    
 
     middleY = (float)image[60*80+40].y1;
 
-    cob = ymoment/ymass - nx/2;
+    //cob = ymoment/ymass - nx/2;
 
     camerayaw = atan2(cob*4,ny); // camerayaw = invtan1(2*cow/(ny/2)) because of scaling of x values
     
+    if (counter % 60 == 0)
+    { 
     printf("Whiteness of middle pixel: %f \n",middleY);
      
-    printf("Center of white: %f \t \t Camerayaw (degrees): %f \n",cob,camerayaw*180/3.14);
+    printf("Center of black: %f \nCamerayaw: %f \n",cob,camerayaw*180/3.14);
+    }
     
         //compile data
         vis_data[0] = -99;
-            vis_data[1] = -99;
+           	vis_data[1] = -99;
             vis_data[2] = -99;
             vis_data[3] = camerayaw;
 
@@ -466,7 +479,8 @@ void RSEDU_image_processing(void * buffer)
                 write(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
                 close(vis_fifo);
             }
-    }
+   
+ }
 
 
     usleep(4000);

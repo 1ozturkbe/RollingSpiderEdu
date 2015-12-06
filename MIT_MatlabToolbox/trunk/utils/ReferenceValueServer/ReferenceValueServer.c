@@ -29,7 +29,7 @@
 
 static double roll_ref = 0;
 static double pitch_ref = 0;
-static double alt_ref = -1.1;
+static double alt_ref = -1.5;
 static double yaw_ref = 0;
 static double follow = 0;
 static double resetXY = 0;
@@ -70,7 +70,7 @@ char keybch;
 static int 	  yes = 1;
 
 static double SATU_angle = 0.5;
-static double SATU_he_min = -1.1;
+static double SATU_he_min = -1.5;
 static double SATU_he_max = -2.7;
 int runcmd = 1;
 
@@ -149,8 +149,8 @@ while(runcmd==1)
 	  if (pitch_ref_RS > SATU_angle) pitch_ref_RS = SATU_angle;
 	  if (pitch_ref_RS < -SATU_angle) pitch_ref_RS = -SATU_angle;
 
-	  if (alt_ref > SATU_he_min) alt_ref = SATU_he_min;
-	  if (alt_ref < SATU_he_max) alt_ref = SATU_he_max;
+	  //if (alt_ref > SATU_he_min) alt_ref = SATU_he_min;
+	  //if (alt_ref < SATU_he_max) alt_ref = SATU_he_max;
 
 
 	  sprintf(sendBuff,"%i %i %i %i %i",runcmd,(int)(pitch_ref_RS*1000 + 10000),(int)(roll_ref_RS*1000 + 10000), (int)(yaw_ref*1000 + 10000), (int)(alt_ref*100.0));

@@ -68,7 +68,7 @@ int FEAT_POSVIS_RUN	= 1; 	//enable image processing computations and input them 
 int FEAT_POSVIS_USE = 0; 	//include vision results in position estimation
 int FEAT_IMSAVE 	= 0;	//image loggin; 0 discard images, 1 save to file, 2 enable video stream;
 int FEAT_NOLOOK 	= 0;	//0: use lookup table lookuptable.dat instead of computing of hsv conversion, thresholding, matching etc onboard
-int FEAT_NOSAFETY 	= 0;	//1: drone is not automatically shut down when take off-surface is not level, z-axis-acceleration is positive or x-y-accelerations exceed 6m/s^2
+int FEAT_NOSAFETY 	= 1;	//1: drone is not automatically shut down when take off-surface is not level, z-axis-acceleration is positive or x-y-accelerations exceed 6m/s^2
 //(This setting is dangerous but allows for more acrobatic maneuvers)
 
 //Flight time takeoff, calibration: Nr of Cycles
@@ -798,7 +798,7 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
     static int counter = 0;
     static int counter_noOF = 0;
 
-    static float MAX_ACCELL 	= 6.0;
+    static float MAX_ACCELL 	= 60.0;
     static float MAX_DELTADXY 	= 1.5;
     static float MAX_RANGE 		= 10.0;
     static float MIN_BATTTAKEOFF 	= 50.0;
@@ -1247,7 +1247,7 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
         //3.2 transition to actual flight: enable altitude-control setting
         else if(counter == calibCycles + takeoffCycles)
         {
-            DroneRS_Compensator_U_pos_refin[2] = -1.1;
+            DroneRS_Compensator_U_pos_refin[2] = -1.5;
         }
         //3.3 actual flight setting
         else if(counter < onCycles)
@@ -1282,9 +1282,11 @@ if (vis_fifo> 0){
             if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
             {
               
-                DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/20;
-     		if (counter % 200)
-              		printf("Attitude reference input (error): %f", (double)vis_data[3]);
+                DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/3;
+                DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/3;
+
+     		//if (counter % 200)
+              	//	printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
 
             }
 }
