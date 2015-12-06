@@ -1283,6 +1283,7 @@ if (vis_fifo> 0){
             {
               
                 DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3];
+                DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/4;
 
      		//if (counter % 200)
               	//	printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);

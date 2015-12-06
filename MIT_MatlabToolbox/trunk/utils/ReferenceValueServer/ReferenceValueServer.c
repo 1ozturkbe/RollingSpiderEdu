@@ -70,7 +70,7 @@ char keybch;
 static int 	  yes = 1;
 
 static double SATU_angle = 0.5;
-static double SATU_he_min = -1.1;
+static double SATU_he_min = -1.5;
 static double SATU_he_max = -2.7;
 int runcmd = 1;
 
