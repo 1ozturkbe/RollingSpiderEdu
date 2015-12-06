@@ -40,5 +40,5 @@ inouttimes_of = getInOutTimes(ptimes_of);
 
 legend 'image processing' 'optical flow' 'control'
 ylim([0.999999 1.000005])
-xlim([0 1500])
+xlim([0 20000])
 xlabel 't [ms]'
