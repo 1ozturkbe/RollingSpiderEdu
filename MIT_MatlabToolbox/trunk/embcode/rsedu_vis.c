@@ -400,7 +400,7 @@ void RSEDU_image_processing(void * buffer)
     //save image
     //-----------
 
-    if((FEAT_IMSAVE == 1) && ((counter % 6) == 0) && (NULL != image)) //@10Hz
+    if((FEAT_IMSAVE == 1) && ((counter % 30) == 0) && (NULL != image)) //@10Hz
     {
         FILE* data;
         char filename[15];
