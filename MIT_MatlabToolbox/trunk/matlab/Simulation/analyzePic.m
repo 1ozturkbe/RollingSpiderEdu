@@ -1,5 +1,5 @@
-exchange = ['/home/johannes/RollingSpiderEdu/'...
-    'MIT_MatlabToolbox/DroneExchange/imgs/'];
+exchange = ['/home/johannes/Dropbox (MIT)/16.30 Project/Images/'...
+    'imgs-old/'];
 processed = [exchange 'processed/'];
 ims = dir(processed);
 readImg = {};
@@ -21,6 +21,9 @@ for i = 1:length(ims)
             imagetemp(1,idx(counter),1) = 255;
             imagetemp(1,idx(counter),2) = 255;
             imagetemp(1,idx(counter),3) = 0;
+            imagetemp(2,idx(counter),1) = 255;
+            imagetemp(2,idx(counter),2) = 255;
+            imagetemp(2,idx(counter),3) = 0;
         end
         [rows, ~] = size(imagetemp);
         stretchedImage = imresize(imagetemp, [rows 160]);
@@ -38,5 +41,5 @@ for j = 1:loops
     drawnow
     F(j) = getframe;
 end
-movie(F,2)
+movie2avi(F, 'test.avi', 'compression', 'None');
 
