@@ -29,7 +29,7 @@
 
 static double roll_ref = 0;
 static double pitch_ref = 0;
-static double alt_ref = -1.5;
+static double alt_ref = -1.1;
 static double yaw_ref = 0;
 static double follow = 0;
 static double resetXY = 0;
@@ -70,7 +70,7 @@ char keybch;
 static int 	  yes = 1;
 
 static double SATU_angle = 0.5;
-static double SATU_he_min = -1.5;
+static double SATU_he_min = -1.1;
 static double SATU_he_max = -2.7;
 int runcmd = 1;
 

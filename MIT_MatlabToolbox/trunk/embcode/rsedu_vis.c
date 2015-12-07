@@ -400,7 +400,7 @@ void RSEDU_image_processing(void * buffer)
     //save image
     //-----------
 
-    if((FEAT_IMSAVE == 1) && ((counter % 30) == 0) && (NULL != image)) //@10Hz
+    if((FEAT_IMSAVE == 1) && ((counter % 15) == 0) && (NULL != image)) //@10Hz
     {
         FILE* data;
         char filename[15];
@@ -423,14 +423,14 @@ void RSEDU_image_processing(void * buffer)
 
     }
 
-    if (counter % 1 == 0)
+    if (counter % 5 == 0)
     {  
     float ymoment = 0;
     float ymass = 0;
     float cob;
     float y=0;
-    float ytemp;
-    float middleY;
+    //float ytemp;
+    //float middleY;
 
     // Calculate center of white: cob = ymoment/ymass - nx/2
     // y is the luminance
@@ -438,47 +438,57 @@ void RSEDU_image_processing(void * buffer)
     // 255 - luminance give black value
     for(i = 0; i < nx; i++)
     {
-	 	ytemp = 255-(float)image[i].y1;
+	 	y = 255-(float)image[i].y1;
 	 	
-		if (ytemp>y){
+		/*if (ytemp>y){
 		y = ytemp;
 		cob = i-nx/2;
-		}
+		}*/
 
-        /*if (y > 185){
-        ymoment += y*i;
-        ymass += y;
-        }*/
+        if (y > 185){
+        	ymoment += y*i;
+        	ymass += y;
         }
+    }
 
 
     
 
-    middleY = (float)image[60*80+40].y1;
+    //middleY = (float)image[60*80+40].y1;
+    if (ymass < 300) // Black line not detected
+    {
+    	camerayaw = 0.1; // A small change in hope of finding the line again
+    }
+else if (1000 < ymass) // Too close to ground
+{
+	camerayaw = 0;
+}
+    else
+	{
+		cob = ymoment/ymass - nx/2;
+		camerayaw = atan2(cob*4,ny); // camerayaw = invtan1(2*cow/(ny/2)) because of scaling of x values
+	}
 
-    //cob = ymoment/ymass - nx/2;
-
-    camerayaw = atan2(cob*4,ny); // camerayaw = invtan1(2*cow/(ny/2)) because of scaling of x values
     
     if (counter % 60 == 0)
     { 
-    printf("Whiteness of middle pixel: %f \n",middleY);
-     
-    printf("Center of black: %f \nCamerayaw: %f \n",cob,camerayaw*180/3.14);
+    //printf("Whiteness of middle pixel: %f \n",middleY);
+    printf("Camerayaw: %f \n ymass: %f \n \n",camerayaw*180/3.14, ymass);
     }
     
         //compile data
         vis_data[0] = -99;
-           	vis_data[1] = -99;
-            vis_data[2] = -99;
-            vis_data[3] = camerayaw;
+        vis_data[1] = -99;
+        vis_data[2] = -99;
+        vis_data[3] = camerayaw;
 
-            vis_fifo = open("/tmp/vis_fifo", O_WRONLY);
-            if(vis_fifo)
-            {
-                write(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
-                close(vis_fifo);
-            }
+        vis_fifo = open("/tmp/vis_fifo", O_WRONLY);
+        
+        if(vis_fifo)
+        {
+            write(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
+            close(vis_fifo);
+        }
    
  }
 

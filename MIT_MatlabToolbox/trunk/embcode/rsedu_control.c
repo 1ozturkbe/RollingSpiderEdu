@@ -1101,8 +1101,8 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
         battLevelAvg = battLevelAvg * (counter - 1) / counter + (double)((int)in->HAL_vbat_SI.vbat_percentage) / counter;
 
         //keep fifos empty
-        if(FEAT_OF_ACTIVE)  read(of_fifo, (float*)(&of_data), sizeof(of_data));
-        if(FEAT_POSVIS_RUN) read(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
+        if(true)  read(of_fifo, (float*)(&of_data), sizeof(of_data)); //before: FEAT_OF_ACTIVE instead of true
+        if(true) read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)); // always run. Before: FEAT_POSVIS_RUN instead of true
 
 
         //Power motors with 0 velocity
@@ -1233,6 +1233,7 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
             //React to possible low battery
             if((DroneRS_Compensator_U_batteryStatus_datin[1] < MIN_BATTTAKEOFF) && (DroneRS_Compensator_U_batteryStatus_datin[1] > 0.1))
             {
+              /*
                 run_flag = 0;
                 printf("Flight aborted due to low voltage (%f %%): shutting down motors now, charge battery!\n", DroneRS_Compensator_U_batteryStatus_datin[1]);
                 out->motors_speed[0] = 0;
@@ -1240,14 +1241,14 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
                 out->motors_speed[2] = 0;
                 out->motors_speed[3] = 0;
                 out->command = BLDC_CMD_STOP;
-                return;
+                return;*/
             }
         }
 
         //3.2 transition to actual flight: enable altitude-control setting
         else if(counter == calibCycles + takeoffCycles)
         {
-            DroneRS_Compensator_U_pos_refin[2] = -1.5;
+            DroneRS_Compensator_U_pos_refin[2] = -1.1;
         }
         //3.3 actual flight setting
         else if(counter < onCycles)
@@ -1283,10 +1284,11 @@ if (vis_fifo> 0){
             {
               
                 DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/3;
-                DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/3;
+                DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/3; //+ 0.03; //DroneRS_Compensator_U_attRS_refin[0]/3
+
 
      		//if (counter % 200)
-              	//	printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
+          //    	printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
 
             }
 }
@@ -1350,14 +1352,14 @@ if (vis_fifo> 0){
         //safety abort due to low battery in flight
         if((DroneRS_Compensator_U_batteryStatus_datin[1] < MIN_BATT) && (DroneRS_Compensator_U_batteryStatus_datin[1] > 1.0))
         {
-            run_flag = 0;
+            //run_flag = 0;
             printf("Flight aborted due to low voltage (%f %%): shutting down motors now, charge battery!\n", DroneRS_Compensator_U_batteryStatus_datin[1]);
-            out->motors_speed[0] = 0;
+            /*out->motors_speed[0] = 0;
             out->motors_speed[1] = 0;
             out->motors_speed[2] = 0;
             out->motors_speed[3] = 0;
             out->command = BLDC_CMD_STOP;
-            return;
+            return;*/
         };
 
 
@@ -1405,7 +1407,7 @@ if (vis_fifo> 0){
 
         }
 
-        //safety abort for high mismatch OF vs state velocities
+        /*//safety abort for high mismatch OF vs state velocities
         if(
             (counter > (calibCycles + takeoffCycles))
             &&
@@ -1424,7 +1426,7 @@ if (vis_fifo> 0){
             out->motors_speed[3] = 0;
             out->command = BLDC_CMD_STOP;
             return;
-        }
+        }*/
 
         //Input to Model: image processing computations (DONOT setup as zero-order hold (pos_x -99.0 when no position available))
         if((FEAT_POSVIS_RUN) && (vis_fifo > 0))
@@ -1432,7 +1434,7 @@ if (vis_fifo> 0){
 
             if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
             {
-                DroneRS_Compensator_U_posVIS_datin[0] = (double)vis_data[0];
+                DroneRS_Compensator_U_posVIS_datin[0] =  -99.0;//(double)vis_data[0]; // Had some trouble with optical flow
                 DroneRS_Compensator_U_posVIS_datin[1] = (double)vis_data[1];
                 DroneRS_Compensator_U_posVIS_datin[2] = (double)vis_data[2];
                 DroneRS_Compensator_U_posVIS_datin[3] = (double)vis_data[3];
