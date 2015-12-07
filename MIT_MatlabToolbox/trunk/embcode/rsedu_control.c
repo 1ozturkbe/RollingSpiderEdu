@@ -86,10 +86,10 @@ int takeoffCycles	= 200;
  */
 
 
-static RT_MODEL_DroneRS_Compensator_T DroneRS_Compensator_M_;
-static RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M =
+ static RT_MODEL_DroneRS_Compensator_T DroneRS_Compensator_M_;
+ static RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M =
   &DroneRS_Compensator_M_;             /* Real-time model */
-static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
+ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
   {
     13840.8,
 
@@ -97,29 +97,29 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
       0.0215786550496705, 0.000652733165165932, 0.000721701528439517,
       0.000690781425279554 },
 
-    { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.05, 0.05, 0.05, 1.0, 1.0, 1.0 },
+      { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.05, 0.05, 0.05, 1.0, 1.0, 1.0 },
 
-    { 0.09, -0.06, 0.337, -0.0095, -0.0075, 0.0015, 101270.95 },
+      { 0.09, -0.06, 0.337, -0.0095, -0.0075, 0.0015, 101270.95 },
 
-    { 1.00596, 1.00383, 0.99454 },
+      { 1.00596, 1.00383, 0.99454 },
 
-    { 0.99861, 1.00644 },
-    0.99997,
-    1.225,
-    12.01725,
-    0.05,
+      { 0.99861, 1.00644 },
+      0.99997,
+      1.225,
+      12.01725,
+      0.05,
 
-    { 0.99407531114557246, 0.99618461293246863, 1.0054899752649467,
-      1.0013919347893572, 0.99360120821906917, 1.0000300009000269 },
-    0.44,
-    0.005,
+      { 0.99407531114557246, 0.99618461293246863, 1.0054899752649467,
+        1.0013919347893572, 0.99360120821906917, 1.0000300009000269 },
+        0.44,
+        0.005,
 
-    { -99.0, 0.0, 0.0, -9.0 },
-    0.0,
-    0.1,
-    0.05,
-    -30.0,
-    20.0
+        { -99.0, 0.0, 0.0, -9.0 },
+        0.0,
+        0.1,
+        0.05,
+        -30.0,
+        20.0
   },                                   /* Variable: quadEDT
                                         * Referenced by:
                                         *   '<S7>/prsToAlt_Gain'
@@ -129,61 +129,61 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
                                         *   '<S63>/Constant'
                                         */
 
-  {
-    4.0,
-    9.81,
-    1.184,
-    1.5e-5,
-    0.068,
+                                        {
+                                          4.0,
+                                          9.81,
+                                          1.184,
+                                          1.5e-5,
+                                          0.068,
 
-    { 8.0299999999999987e-5, 1.1699999999999996e-5, 0.0, 1.1699999999999995e-5,
-      8.03e-5, 0.0, 0.0, 0.0, 0.0001366 },
-    -0.015875999999999998,
-    0.0624,
-    2.0,
-    0.033,
-    0.008,
-    0.0,
-    0.000375,
-    0.0,
-    0.0,
-    1.0209375000000001e-7,
-    0.0,
-    6.0699375000000009e-5,
-    2.0418750000000001e-7,
-    0.0107,
-    0.00078263752785053692,
-    0.15433206602850458,
-    0.11868238913561441,
-    0.25481807079117214,
-    -0.13613568165555773,
-    0.15271630954950383,
-    10000.0,
-    5.5,
-    0.0034211943997592849,
-    0.605147136,
-    4.7199903669109095e-8,
-    1.1392838555498841e-10,
-    0
+                                          { 8.0299999999999987e-5, 1.1699999999999996e-5, 0.0, 1.1699999999999995e-5,
+                                            8.03e-5, 0.0, 0.0, 0.0, 0.0001366 },
+                                            -0.015875999999999998,
+                                            0.0624,
+                                            2.0,
+                                            0.033,
+                                            0.008,
+                                            0.0,
+                                            0.000375,
+                                            0.0,
+                                            0.0,
+                                            1.0209375000000001e-7,
+                                            0.0,
+                                            6.0699375000000009e-5,
+                                            2.0418750000000001e-7,
+                                            0.0107,
+                                            0.00078263752785053692,
+                                            0.15433206602850458,
+                                            0.11868238913561441,
+                                            0.25481807079117214,
+                                            -0.13613568165555773,
+                                            0.15271630954950383,
+                                            10000.0,
+                                            5.5,
+                                            0.0034211943997592849,
+                                            0.605147136,
+                                            4.7199903669109095e-8,
+                                            1.1392838555498841e-10,
+                                            0
   },                                   /* Variable: quad
                                         * Referenced by: '<S2>/w0'
                                         */
 
-  {
-    { 0.28212412246252067, 1.272539291716861, 2.4208439774454473,
-      2.4208439774454487, 1.272539291716863, 0.28212412246252133 },
+                                        {
+                                          { 0.28212412246252067, 1.272539291716861, 2.4208439774454473,
+                                            2.4208439774454487, 1.272539291716863, 0.28212412246252133 },
 
-    { 1.0, 2.2287149173647665, 2.5244618916938606, 1.5772531712757014,
-      0.541022406829817, 0.079562396085500781 },
+                                            { 1.0, 2.2287149173647665, 2.5244618916938606, 1.5772531712757014,
+                                              0.541022406829817, 0.079562396085500781 },
 
-    { 0.007509257528603033, -0.022498139897706472, 0.014988905760749172,
-      0.014988905760749172, -0.022498139897706455, 0.0075092575286030234 },
+                                              { 0.007509257528603033, -0.022498139897706472, 0.014988905760749172,
+                                                0.014988905760749172, -0.022498139897706455, 0.0075092575286030234 },
 
-    { 1.0, -4.89810443312637, 9.5974881329446688, -9.4036722433820046,
-      4.60730099744654, -0.90301240709954322 },
-    0.3,
-    0.8,
-    0.4
+                                                { 1.0, -4.89810443312637, 9.5974881329446688, -9.4036722433820046,
+                                                  4.60730099744654, -0.90301240709954322 },
+                                                  0.3,
+                                                  0.8,
+                                                  0.4
   },                                   /* Variable: altEstim
                                         * Referenced by:
                                         *   '<S7>/Bias'
@@ -197,13 +197,13 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
                                         *   '<S69>/IIRgyroz'
                                         */
 
-  {
-    0.6,
-    7.0,
-    0.5,
-    80.0,
-    -0.4,
-    5.0
+                                        {
+                                          0.6,
+                                          7.0,
+                                          0.5,
+                                          80.0,
+                                          -0.4,
+                                          5.0
   },                                   /* Variable: ofhandle
                                         * Referenced by:
                                         *   '<S117>/Constant'
@@ -219,9 +219,9 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
                                         *   '<S127>/Constant'
                                         */
 
-  {
-    0.18,
-    0.5
+                                        {
+                                          0.18,
+                                          0.5
   },                                   /* Variable: vishandle
                                         * Referenced by:
                                         *   '<S178>/Constant'
@@ -233,7 +233,7 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
                                         */
 
   /* Start of '<Root>/DroneRS_Compensator' */
-  {
+                                        {
     0.0,                               /* Mask Parameter: DiscreteDerivative_ICPrevScaled
                                         * Referenced by: '<S116>/UD'
                                         */
@@ -253,7 +253,7 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: controlParams.filter_accelero.Coefficients
      * Referenced by: '<S10>/FIRaccelero'
      */
-    { 0.026407724923238066, 0.14053136276241623, 0.3330609123143457,
+     { 0.026407724923238066, 0.14053136276241623, 0.3330609123143457,
       0.3330609123143457, 0.14053136276241623, 0.026407724923238066 },
     0.0,                               /* Expression: 0
                                         * Referenced by: '<S10>/IIRgyroz'
@@ -265,7 +265,7 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: pInitialization.M
      * Referenced by: '<S131>/KalmanGainM'
      */
-    { 0.005756860081440762, 0.0, 0.0, 0.005756860081440762 },
+     { 0.005756860081440762, 0.0, 0.0, 0.005756860081440762 },
     0.0,                               /* Expression: 0
                                         * Referenced by: '<S69>/IIRgyroz'
                                         */
@@ -291,17 +291,17 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: pInitialization.M
      * Referenced by: '<S16>/KalmanGainM'
      */
-    { 0.026241420641871072, 0.069776736071495274 },
+     { 0.026241420641871072, 0.069776736071495274 },
 
     /*  Expression: [0 0 quad.g]
      * Referenced by: '<S7>/gravity'
      */
-    { 0.0, 0.0, 9.81 },
+     { 0.0, 0.0, 9.81 },
 
     /*  Expression: pInitialization.C
      * Referenced by: '<S11>/C'
      */
-    { 1.0, 0.0 },
+     { 1.0, 0.0 },
     0.0,                               /* Expression: pInitialization.D
                                         * Referenced by: '<S11>/D'
                                         */
@@ -309,7 +309,7 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: pInitialization.X0
      * Referenced by: '<S11>/X0'
      */
-    { -0.046, 0.0 },
+     { -0.046, 0.0 },
     0.0,                               /* Expression: 0
                                         * Referenced by: '<S65>/Delay'
                                         */
@@ -317,12 +317,12 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: pInitialization.M
      * Referenced by: '<S71>/KalmanGainM'
      */
-    { 0.1254656089860898, 0.0, 0.0, 0.1254656089860898 },
+     { 0.1254656089860898, 0.0, 0.0, 0.1254656089860898 },
 
     /*  Expression: [0 0 -quad.g]
      * Referenced by: '<S67>/gravity'
      */
-    { 0.0, 0.0, -9.81 },
+     { 0.0, 0.0, -9.81 },
     0.2,                               /* Expression: 0.2
                                         * Referenced by: '<S67>/gainaccinput'
                                         */
@@ -330,17 +330,17 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: pInitialization.C
      * Referenced by: '<S68>/C'
      */
-    { 1.0, 0.0, 0.0, 1.0 },
+     { 1.0, 0.0, 0.0, 1.0 },
 
     /*  Expression: pInitialization.D
      * Referenced by: '<S68>/D'
      */
-    { 0.0, 0.0, 0.0, 0.0 },
+     { 0.0, 0.0, 0.0, 0.0 },
 
     /*  Expression: pInitialization.X0
      * Referenced by: '<S68>/X0'
      */
-    { 0.0, 0.0 },
+     { 0.0, 0.0 },
     0.0,                               /* Expression: 0
                                         * Referenced by: '<S3>/Delay1'
                                         */
@@ -348,17 +348,17 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: pInitialization.C
      * Referenced by: '<S128>/C'
      */
-    { 1.0, 0.0, 0.0, 1.0 },
+     { 1.0, 0.0, 0.0, 1.0 },
 
     /*  Expression: pInitialization.D
      * Referenced by: '<S128>/D'
      */
-    { 0.0, 0.0, 0.0, 0.0 },
+     { 0.0, 0.0, 0.0, 0.0 },
 
     /*  Expression: pInitialization.X0
      * Referenced by: '<S128>/X0'
      */
-    { 0.1, 0.0 },
+     { 0.1, 0.0 },
     0.005,                             /* Computed Parameter: SimplyIntegrateVelocity_gainval
                                         * Referenced by: '<S66>/SimplyIntegrateVelocity'
                                         */
@@ -378,47 +378,47 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
     /*  Expression: pInitialization.A
      * Referenced by: '<S11>/A'
      */
-    { 1.0, 0.0, 0.005, 1.0 },
+     { 1.0, 0.0, 0.005, 1.0 },
 
     /*  Expression: pInitialization.B
      * Referenced by: '<S11>/B'
      */
-    { 0.0, 0.005 },
+     { 0.0, 0.005 },
 
     /*  Expression: pInitialization.L
      * Referenced by: '<S16>/KalmanGainL'
      */
-    { 0.026590304322228548, 0.069776736071495274 },
+     { 0.026590304322228548, 0.069776736071495274 },
 
     /*  Expression: pInitialization.A
      * Referenced by: '<S68>/A'
      */
-    { 1.0, 0.0, 0.0, 1.0 },
+     { 1.0, 0.0, 0.0, 1.0 },
 
     /*  Expression: pInitialization.B
      * Referenced by: '<S68>/B'
      */
-    { 0.005, 0.0, 0.0, 0.005 },
+     { 0.005, 0.0, 0.0, 0.005 },
 
     /*  Expression: pInitialization.L
      * Referenced by: '<S71>/KalmanGainL'
      */
-    { 0.1254656089860898, 0.0, 0.0, 0.1254656089860898 },
+     { 0.1254656089860898, 0.0, 0.0, 0.1254656089860898 },
 
     /*  Expression: pInitialization.A
      * Referenced by: '<S128>/A'
      */
-    { 1.0, 0.0, 0.0, 1.0 },
+     { 1.0, 0.0, 0.0, 1.0 },
 
     /*  Expression: pInitialization.B
      * Referenced by: '<S128>/B'
      */
-    { 0.005, 0.0, 0.0, 0.005 },
+     { 0.005, 0.0, 0.0, 0.005 },
 
     /*  Expression: pInitialization.L
      * Referenced by: '<S131>/KalmanGainL'
      */
-    { 0.005756860081440762, 0.0, 0.0, 0.005756860081440762 },
+     { 0.005756860081440762, 0.0, 0.0, 0.005756860081440762 },
     1U,                                /* Computed Parameter: Delay_DelayLength
                                         * Referenced by: '<S66>/Delay'
                                         */
@@ -442,7 +442,7 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
                                         */
 
     /* Start of '<S1>/ControllerPID2W' */
-    {
+                                        {
       350.0,                           /* Expression: 350
                                         * Referenced by: '<S2>/D_z'
                                         */
@@ -456,12 +456,12 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
       /*  Expression: [0.08, -0.09]
        * Referenced by: '<S2>/D_xy'
        */
-      { 0.08, -0.09 },
+       { 0.08, -0.09 },
 
       /*  Expression: [-0.32,0.29]
        * Referenced by: '<S2>/P_xy'
        */
-      { -0.32, 0.29 },
+       { -0.32, 0.29 },
       0.0,                             /* Expression: 0
                                         * Referenced by: '<S2>/TakeoffOrControl_Switch'
                                         */
@@ -475,13 +475,13 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
       /*  Expression: [0.7071, 0.7071, -1.0000, -1.00;   -0.7071,    0.7071,   -1.0000,    1.00;   -0.7071,   -0.7071,   -1.0000,   -1.00;    0.7071,   -0.7071,   -1.0000,    1.00]
        * Referenced by: '<S4>/Action2omega'
        */
-      { 0.7071, -0.7071, -0.7071, 0.7071, 0.7071, 0.7071, -0.7071, -0.7071, -1.0,
+       { 0.7071, -0.7071, -0.7071, 0.7071, 0.7071, 0.7071, -0.7071, -0.7071, -1.0,
         -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, 1.0 },
 
       /*  Expression: [600;1300]
        * Referenced by: '<S2>/P_pr'
        */
-      { 600.0, 1300.0 },
+       { 600.0, 1300.0 },
       0.005,                           /* Computed Parameter: DiscreteTimeIntegrator_gainval
                                         * Referenced by: '<S2>/Discrete-Time Integrator'
                                         */
@@ -501,7 +501,7 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
       /*  Expression: [80;300]
        * Referenced by: '<S2>/D_pr'
        */
-      { 80.0, 300.0 },
+       { 80.0, 300.0 },
       6000.0,                          /* Expression: 6000
                                         * Referenced by: '<S2>/P_yaw'
                                         */
@@ -556,9 +556,9 @@ static P_DroneRS_Compensator_T DroneRS_Compensator_P = {
       1U                               /* Computed Parameter: Delay_DelayLength
                                         * Referenced by: '<S2>/Delay'
                                         */
-    }
+                                      }
     /* End of '<S1>/ControllerPID2W' */
-  }
+                                    }
   /* End of '<Root>/DroneRS_Compensator' */
 };                                     /* Modifiable parameters */
 
@@ -580,157 +580,157 @@ static B_DroneRS_Compensator_T DroneRS_Compensator_B;/* Observable signals */
 static DW_DroneRS_Compensator_T DroneRS_Compensator_DW;/* Observable states */
 
 /* '<Root>/controlModePosVSAtt_flagin' */
-static boolean_T DroneRS_Compensator_U_controlModePosVSAtt_flagin;
+ static boolean_T DroneRS_Compensator_U_controlModePosVSAtt_flagin;
 
 /* '<Root>/pos_refin' */
-static real_T DroneRS_Compensator_U_pos_refin[3];
+ static real_T DroneRS_Compensator_U_pos_refin[3];
 
 /* '<Root>/attRS_refin' */
-static real_T DroneRS_Compensator_U_attRS_refin[3];
+ static real_T DroneRS_Compensator_U_attRS_refin[3];
 
 /* '<Root>/ddx' */
-static real_T DroneRS_Compensator_U_ddx;
+ static real_T DroneRS_Compensator_U_ddx;
 
 /* '<Root>/ddy' */
-static real_T DroneRS_Compensator_U_ddy;
+ static real_T DroneRS_Compensator_U_ddy;
 
 /* '<Root>/ddz' */
-static real_T DroneRS_Compensator_U_ddz;
+ static real_T DroneRS_Compensator_U_ddz;
 
 /* '<Root>/p' */
-static real_T DroneRS_Compensator_U_p;
+ static real_T DroneRS_Compensator_U_p;
 
 /* '<Root>/q' */
-static real_T DroneRS_Compensator_U_q;
+ static real_T DroneRS_Compensator_U_q;
 
 /* '<Root>/r' */
-static real_T DroneRS_Compensator_U_r;
+ static real_T DroneRS_Compensator_U_r;
 
 /* '<Root>/altitude_sonar' */
-static real_T DroneRS_Compensator_U_altitude_sonar;
+ static real_T DroneRS_Compensator_U_altitude_sonar;
 
 /* '<Root>/prs' */
-static real_T DroneRS_Compensator_U_prs;
+ static real_T DroneRS_Compensator_U_prs;
 
 /* '<Root>/opticalFlowRS_datin' */
-static real_T DroneRS_Compensator_U_opticalFlowRS_datin[3];
+ static real_T DroneRS_Compensator_U_opticalFlowRS_datin[3];
 
 /* '<Root>/sensordatabiasRS_datin' */
-static real_T DroneRS_Compensator_U_sensordatabiasRS_datin[7];
+ static real_T DroneRS_Compensator_U_sensordatabiasRS_datin[7];
 
 /* '<Root>/posVIS_datin' */
-static real_T DroneRS_Compensator_U_posVIS_datin[4];
+ static real_T DroneRS_Compensator_U_posVIS_datin[4];
 
 /* '<Root>/usePosVIS_flagin' */
-static real_T DroneRS_Compensator_U_usePosVIS_flagin;
+ static real_T DroneRS_Compensator_U_usePosVIS_flagin;
 
 /* '<Root>/batteryStatus_datin' */
-static real_T DroneRS_Compensator_U_batteryStatus_datin[2];
+ static real_T DroneRS_Compensator_U_batteryStatus_datin[2];
 
 /* '<Root>/motorsRS_cmdout' */
-static real_T DroneRS_Compensator_Y_motorsRS_cmdout[4];
+ static real_T DroneRS_Compensator_Y_motorsRS_cmdout[4];
 
 /* '<Root>/X' */
-static real_T DroneRS_Compensator_Y_X;
+ static real_T DroneRS_Compensator_Y_X;
 
 /* '<Root>/Y' */
-static real_T DroneRS_Compensator_Y_Y;
+ static real_T DroneRS_Compensator_Y_Y;
 
 /* '<Root>/Z' */
-static real_T DroneRS_Compensator_Y_Z;
+ static real_T DroneRS_Compensator_Y_Z;
 
 /* '<Root>/yaw' */
-static real_T DroneRS_Compensator_Y_yaw;
+ static real_T DroneRS_Compensator_Y_yaw;
 
 /* '<Root>/pitch' */
-static real_T DroneRS_Compensator_Y_pitch;
+ static real_T DroneRS_Compensator_Y_pitch;
 
 /* '<Root>/roll' */
-static real_T DroneRS_Compensator_Y_roll;
+ static real_T DroneRS_Compensator_Y_roll;
 
 /* '<Root>/dx' */
-static real_T DroneRS_Compensator_Y_dx;
+ static real_T DroneRS_Compensator_Y_dx;
 
 /* '<Root>/dy' */
-static real_T DroneRS_Compensator_Y_dy;
+ static real_T DroneRS_Compensator_Y_dy;
 
 /* '<Root>/dz' */
-static real_T DroneRS_Compensator_Y_dz;
+ static real_T DroneRS_Compensator_Y_dz;
 
 /* '<Root>/pb' */
-static real_T DroneRS_Compensator_Y_pb;
+ static real_T DroneRS_Compensator_Y_pb;
 
 /* '<Root>/qb' */
-static real_T DroneRS_Compensator_Y_qb;
+ static real_T DroneRS_Compensator_Y_qb;
 
 /* '<Root>/rb' */
-static real_T DroneRS_Compensator_Y_rb;
+ static real_T DroneRS_Compensator_Y_rb;
 
 /* '<Root>/controlModePosVSAtt_flagout' */
-static boolean_T DroneRS_Compensator_Y_controlModePosVSAtt_flagout;
+ static boolean_T DroneRS_Compensator_Y_controlModePosVSAtt_flagout;
 
 /* '<Root>/poseRS_refout' */
-static real_T DroneRS_Compensator_Y_poseRS_refout[6];
+ static real_T DroneRS_Compensator_Y_poseRS_refout[6];
 
 /* '<Root>/ddxb' */
-static real_T DroneRS_Compensator_Y_ddxb;
+ static real_T DroneRS_Compensator_Y_ddxb;
 
 /* '<Root>/ddyb' */
-static real_T DroneRS_Compensator_Y_ddyb;
+ static real_T DroneRS_Compensator_Y_ddyb;
 
 /* '<Root>/ddzb' */
-static real_T DroneRS_Compensator_Y_ddzb;
+ static real_T DroneRS_Compensator_Y_ddzb;
 
 /* '<Root>/pa' */
-static real_T DroneRS_Compensator_Y_pa;
+ static real_T DroneRS_Compensator_Y_pa;
 
 /* '<Root>/qa' */
-static real_T DroneRS_Compensator_Y_qa;
+ static real_T DroneRS_Compensator_Y_qa;
 
 /* '<Root>/ra' */
-static real_T DroneRS_Compensator_Y_ra;
+ static real_T DroneRS_Compensator_Y_ra;
 
 /* '<Root>/altitude_sonarb' */
-static real_T DroneRS_Compensator_Y_altitude_sonarb;
+ static real_T DroneRS_Compensator_Y_altitude_sonarb;
 
 /* '<Root>/prsb' */
-static real_T DroneRS_Compensator_Y_prsb;
+ static real_T DroneRS_Compensator_Y_prsb;
 
 /* '<Root>/opticalFlowRS_datout' */
-static real_T DroneRS_Compensator_Y_opticalFlowRS_datout[3];
+ static real_T DroneRS_Compensator_Y_opticalFlowRS_datout[3];
 
 /* '<Root>/sensordatabiasRS_datout' */
-static real_T DroneRS_Compensator_Y_sensordatabiasRS_datout[7];
+ static real_T DroneRS_Compensator_Y_sensordatabiasRS_datout[7];
 
 /* '<Root>/posVIS_datout' */
-static real_T DroneRS_Compensator_Y_posVIS_datout[4];
+ static real_T DroneRS_Compensator_Y_posVIS_datout[4];
 
 /* '<Root>/usePosVIS_flagout' */
-static real_T DroneRS_Compensator_Y_usePosVIS_flagout;
+ static real_T DroneRS_Compensator_Y_usePosVIS_flagout;
 
 /* '<Root>/batteryStatus_datout' */
-static real_T DroneRS_Compensator_Y_batteryStatus_datout[2];
+ static real_T DroneRS_Compensator_Y_batteryStatus_datout[2];
 
 //-------------------
 //END OF SIMULINK compensator block "Input/Outputport Declarations" IO(1/3)
 //-------------------
 
 //steps the SIMULINK compensator block model one step
-void rt_OneStep(RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M);
-void rt_OneStep(RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M)
-{
-    static boolean_T OverrunFlag = false;
+ void rt_OneStep(RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M);
+ void rt_OneStep(RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M)
+ {
+  static boolean_T OverrunFlag = false;
 
     /* Disable interrupts here */
 
     /* Check for overrun */
-    if(OverrunFlag)
-    {
-        rtmSetErrorStatus(DroneRS_Compensator_M, "Overrun");
-        return;
-    }
+  if(OverrunFlag)
+  {
+    rtmSetErrorStatus(DroneRS_Compensator_M, "Overrun");
+    return;
+  }
 
-    OverrunFlag = true;
+  OverrunFlag = true;
 
     /* Save FPU context here (if necessary) */
     /* Re-enable timer or interrupt here */
@@ -739,33 +739,33 @@ void rt_OneStep(RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M)
     /* Step the model */
     // (IO(2/3): If input-output-ports of the SIMULINK controller block changed, update these lines with the corresponding lines from ert_main.c)
     /* Step the model */
-    DroneRS_Compensator_step(DroneRS_Compensator_M,
-                             DroneRS_Compensator_U_controlModePosVSAtt_flagin,
-                             DroneRS_Compensator_U_pos_refin, DroneRS_Compensator_U_attRS_refin,
-                             DroneRS_Compensator_U_ddx, DroneRS_Compensator_U_ddy,
-                             DroneRS_Compensator_U_ddz, DroneRS_Compensator_U_p, DroneRS_Compensator_U_q,
-                             DroneRS_Compensator_U_r, DroneRS_Compensator_U_altitude_sonar,
-                             DroneRS_Compensator_U_prs, DroneRS_Compensator_U_opticalFlowRS_datin,
-                             DroneRS_Compensator_U_sensordatabiasRS_datin,
-                             DroneRS_Compensator_U_posVIS_datin, DroneRS_Compensator_U_usePosVIS_flagin,
-                             DroneRS_Compensator_U_batteryStatus_datin,
-                             DroneRS_Compensator_Y_motorsRS_cmdout, &DroneRS_Compensator_Y_X,
-                             &DroneRS_Compensator_Y_Y, &DroneRS_Compensator_Y_Z,
-                             &DroneRS_Compensator_Y_yaw, &DroneRS_Compensator_Y_pitch,
-                             &DroneRS_Compensator_Y_roll, &DroneRS_Compensator_Y_dx,
-                             &DroneRS_Compensator_Y_dy, &DroneRS_Compensator_Y_dz,
-                             &DroneRS_Compensator_Y_pb, &DroneRS_Compensator_Y_qb,
-                             &DroneRS_Compensator_Y_rb,
-                             &DroneRS_Compensator_Y_controlModePosVSAtt_flagout,
-                             DroneRS_Compensator_Y_poseRS_refout, &DroneRS_Compensator_Y_ddxb,
-                             &DroneRS_Compensator_Y_ddyb, &DroneRS_Compensator_Y_ddzb,
-                             &DroneRS_Compensator_Y_pa, &DroneRS_Compensator_Y_qa,
-                             &DroneRS_Compensator_Y_ra, &DroneRS_Compensator_Y_altitude_sonarb,
-                             &DroneRS_Compensator_Y_prsb, DroneRS_Compensator_Y_opticalFlowRS_datout,
-                             DroneRS_Compensator_Y_sensordatabiasRS_datout,
-                             DroneRS_Compensator_Y_posVIS_datout,
-                             &DroneRS_Compensator_Y_usePosVIS_flagout,
-                             DroneRS_Compensator_Y_batteryStatus_datout);
+  DroneRS_Compensator_step(DroneRS_Compensator_M,
+   DroneRS_Compensator_U_controlModePosVSAtt_flagin,
+   DroneRS_Compensator_U_pos_refin, DroneRS_Compensator_U_attRS_refin,
+   DroneRS_Compensator_U_ddx, DroneRS_Compensator_U_ddy,
+   DroneRS_Compensator_U_ddz, DroneRS_Compensator_U_p, DroneRS_Compensator_U_q,
+   DroneRS_Compensator_U_r, DroneRS_Compensator_U_altitude_sonar,
+   DroneRS_Compensator_U_prs, DroneRS_Compensator_U_opticalFlowRS_datin,
+   DroneRS_Compensator_U_sensordatabiasRS_datin,
+   DroneRS_Compensator_U_posVIS_datin, DroneRS_Compensator_U_usePosVIS_flagin,
+   DroneRS_Compensator_U_batteryStatus_datin,
+   DroneRS_Compensator_Y_motorsRS_cmdout, &DroneRS_Compensator_Y_X,
+   &DroneRS_Compensator_Y_Y, &DroneRS_Compensator_Y_Z,
+   &DroneRS_Compensator_Y_yaw, &DroneRS_Compensator_Y_pitch,
+   &DroneRS_Compensator_Y_roll, &DroneRS_Compensator_Y_dx,
+   &DroneRS_Compensator_Y_dy, &DroneRS_Compensator_Y_dz,
+   &DroneRS_Compensator_Y_pb, &DroneRS_Compensator_Y_qb,
+   &DroneRS_Compensator_Y_rb,
+   &DroneRS_Compensator_Y_controlModePosVSAtt_flagout,
+   DroneRS_Compensator_Y_poseRS_refout, &DroneRS_Compensator_Y_ddxb,
+   &DroneRS_Compensator_Y_ddyb, &DroneRS_Compensator_Y_ddzb,
+   &DroneRS_Compensator_Y_pa, &DroneRS_Compensator_Y_qa,
+   &DroneRS_Compensator_Y_ra, &DroneRS_Compensator_Y_altitude_sonarb,
+   &DroneRS_Compensator_Y_prsb, DroneRS_Compensator_Y_opticalFlowRS_datout,
+   DroneRS_Compensator_Y_sensordatabiasRS_datout,
+   DroneRS_Compensator_Y_posVIS_datout,
+   &DroneRS_Compensator_Y_usePosVIS_flagout,
+   DroneRS_Compensator_Y_batteryStatus_datout);
     //-------------------
     //-------------------
 
@@ -773,7 +773,7 @@ void rt_OneStep(RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M)
     /* Get model outputs here */
 
     /* Indicate task complete */
-    OverrunFlag = false;
+OverrunFlag = false;
 
     /* Disable interrupts here */
     /* Restore FPU context here (if necessary) */
@@ -789,20 +789,20 @@ void rt_OneStep(RT_MODEL_DroneRS_Compensator_T *const DroneRS_Compensator_M)
  * @input hal_sensors_data Structure containing sensors current values
  * @output hal_sensors_cmd Structure containing commands to send to motors and LEDs
  */
-void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_sensors_cmd)
-{
+ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_sensors_cmd)
+ {
     //flight phases
-    static int run_flag = 1;
+  static int run_flag = 1;
 
     //process control
-    static int counter = 0;
-    static int counter_noOF = 0;
+  static int counter = 0;
+  static int counter_noOF = 0;
 
-    static float MAX_ACCELL 	= 60.0;
-    static float MAX_DELTADXY 	= 1.5;
-    static float MAX_RANGE 		= 10.0;
-    static float MIN_BATTTAKEOFF 	= 50.0;
-    static float MIN_BATT		= 30.0;
+  static float MAX_ACCELL 	= 60.0;
+  static float MAX_DELTADXY 	= 1.5;
+  static float MAX_RANGE 		= 10.0;
+  static float MIN_BATTTAKEOFF 	= 50.0;
+  static float MIN_BATT		= 30.0;
     static int MAX_noOF 		= 500; //maximum acceptable numbers of cycles without optical flow
 
     //user input
@@ -839,46 +839,46 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
 
     //ptiming - declare and start
     //------------
-    long long start;
-    static FILE *ptfile;
-    ptimer_start(FEAT_TIME, counter, &(start));
+     long long start;
+     static FILE *ptfile;
+     ptimer_start(FEAT_TIME, counter, &(start));
     //------------
 
 
     // Create easier aliases
 
-    HAL_acquisition_t* in = hal_sensors_data;
-    HAL_command_t    * out = hal_sensors_cmd;
+     HAL_acquisition_t* in = hal_sensors_data;
+     HAL_command_t    * out = hal_sensors_cmd;
 
     //ABORT FLIGHT and exit if run_flag 0
-    if(run_flag == 0)
-    {
-        if(counter > calibCycles)
-        {
-            printf("Saving logged data after %i cycles... \n", counter);
-            rt_StopDataLogging(MATFILE, DroneRS_Compensator_M->rtwLogInfo);
-        }
+     if(run_flag == 0)
+     {
+      if(counter > calibCycles)
+      {
+        printf("Saving logged data after %i cycles... \n", counter);
+        rt_StopDataLogging(MATFILE, DroneRS_Compensator_M->rtwLogInfo);
+      }
 
-        if(FEAT_OF_ACTIVE)
-        {
-            close(of_fifo);
-        }
+      if(FEAT_OF_ACTIVE)
+      {
+        close(of_fifo);
+      }
 
-        if(FEAT_TIME)
-        {
-            close(ptfile);
-        };
+      if(FEAT_TIME)
+      {
+        close(ptfile);
+      };
 
 
-        printf("Saving logged data... DONE \n");
-        printf("Good night! \n");
-        out->motors_speed[0] = 0;
-        out->motors_speed[1] = 0;
-        out->motors_speed[2] = 0;
-        out->motors_speed[3] = 0;
-        out->command = BLDC_CMD_STOP;
-        usleep(100);
-        exit(0);
+      printf("Saving logged data... DONE \n");
+      printf("Good night! \n");
+      out->motors_speed[0] = 0;
+      out->motors_speed[1] = 0;
+      out->motors_speed[2] = 0;
+      out->motors_speed[3] = 0;
+      out->command = BLDC_CMD_STOP;
+      usleep(100);
+      exit(0);
     }
 
 
@@ -893,113 +893,113 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
 
     if(counter == 1)
     {
-        printf("\nBattery output voltage: %5.2f V - %0d percents\n", in->HAL_vbat_SI.vbat_V, (int)in->HAL_vbat_SI.vbat_percentage);
-        printf("used: %d, users: %d, gyrotemp %f, acctemp %f, presstmp %f \n", (int)in->used, (int)in->count_user, in->HAL_gyro_SI.temperature, in->HAL_acc_SI.temperature, in->HAL_pressure_SI.temperature);
+      printf("\nBattery output voltage: %5.2f V - %0d percents\n", in->HAL_vbat_SI.vbat_V, (int)in->HAL_vbat_SI.vbat_percentage);
+      printf("used: %d, users: %d, gyrotemp %f, acctemp %f, presstmp %f \n", (int)in->used, (int)in->count_user, in->HAL_gyro_SI.temperature, in->HAL_acc_SI.temperature, in->HAL_pressure_SI.temperature);
 
 
         //read parameters
 
-        FILE *paramFile;
-        paramFile = fopen("/data/edu/params/paramsEDU.dat", "r");
-        if(paramFile == NULL)
-        {
-            printf("ParamsEDU.dat parameter file not found, using default! \n");
-        }
+      FILE *paramFile;
+      paramFile = fopen("/data/edu/params/paramsEDU.dat", "r");
+      if(paramFile == NULL)
+      {
+        printf("ParamsEDU.dat parameter file not found, using default! \n");
+      }
 
-        else
+      else
+      {
+        char tmpbuff[50];
+        char tmpstr1[16];
+        char tmpstr2[16];
+        while(!feof(paramFile))
         {
-            char tmpbuff[50];
-            char tmpstr1[16];
-            char tmpstr2[16];
-            while(!feof(paramFile))
+          if(fgets(tmpbuff, 50, paramFile))
+          {
+            sscanf(tmpbuff, "%15s : %15[^;];", tmpstr1, tmpstr2);
+
+            if(!strcmp(tmpstr1, "FEAT_OF_ACTIVE"))
             {
-                if(fgets(tmpbuff, 50, paramFile))
-                {
-                    sscanf(tmpbuff, "%15s : %15[^;];", tmpstr1, tmpstr2);
-
-                    if(!strcmp(tmpstr1, "FEAT_OF_ACTIVE"))
-                    {
-                        FEAT_OF_ACTIVE = atoi(tmpstr2);
-                    }
-                    else if(!strcmp(tmpstr1, "FEAT_POSVIS_RUN"))
-                    {
-                        FEAT_POSVIS_RUN = atoi(tmpstr2);
-                    }
-                    else if(!strcmp(tmpstr1, "POWERGAIN"))
-                    {
-                        powerGain_eparam = atoi(tmpstr2) / 100.0;
-                    }
-                    else if(!strcmp(tmpstr1, "FEAT_POSVIS_USE"))
-                    {
-                        FEAT_POSVIS_USE = atoi(tmpstr2);
-                    }
-                    else if(!strcmp(tmpstr1, "FEAT_NOLOOK"))
-                    {
-                        FEAT_NOLOOK = atoi(tmpstr2);
-                    }
-                    else if(!strcmp(tmpstr1, "FEAT_IMSAVE"))
-                    {
-                        FEAT_IMSAVE = atoi(tmpstr2);
-                    }
-                    else if(!strcmp(tmpstr1, "FEAT_TIME"))
-                    {
-                        FEAT_TIME = atoi(tmpstr2);
-                    }
-                    else if(!strcmp(tmpstr1, "FEAT_NOSAFETY"))
-                    {
-                        FEAT_NOSAFETY = atoi(tmpstr2);
-                    }
-                    else if(!strcmp(tmpstr1, "IP"))
-                    {
-                        memcpy(serverIP, tmpstr2, sizeof(tmpstr2));
-                    };
-
-                }
+              FEAT_OF_ACTIVE = atoi(tmpstr2);
             }
-            fclose(paramFile);
-        }
+            else if(!strcmp(tmpstr1, "FEAT_POSVIS_RUN"))
+            {
+              FEAT_POSVIS_RUN = atoi(tmpstr2);
+            }
+            else if(!strcmp(tmpstr1, "POWERGAIN"))
+            {
+              powerGain_eparam = atoi(tmpstr2) / 100.0;
+            }
+            else if(!strcmp(tmpstr1, "FEAT_POSVIS_USE"))
+            {
+              FEAT_POSVIS_USE = atoi(tmpstr2);
+            }
+            else if(!strcmp(tmpstr1, "FEAT_NOLOOK"))
+            {
+              FEAT_NOLOOK = atoi(tmpstr2);
+            }
+            else if(!strcmp(tmpstr1, "FEAT_IMSAVE"))
+            {
+              FEAT_IMSAVE = atoi(tmpstr2);
+            }
+            else if(!strcmp(tmpstr1, "FEAT_TIME"))
+            {
+              FEAT_TIME = atoi(tmpstr2);
+            }
+            else if(!strcmp(tmpstr1, "FEAT_NOSAFETY"))
+            {
+              FEAT_NOSAFETY = atoi(tmpstr2);
+            }
+            else if(!strcmp(tmpstr1, "IP"))
+            {
+              memcpy(serverIP, tmpstr2, sizeof(tmpstr2));
+            };
 
-        printf("\nSettings:\n -----\n FEAT_TIME: %d \n FEAT_OF_ACTIVE: %d \n FEAT_POSVIS_RUN: %d \n FEAT_POSVIS_USE: %d \n FEAT_NOLOOK: %d \n FEAT_IMSAVE: %d \n FEAT_NOSAFETY: %d \n -----\n", FEAT_TIME, FEAT_OF_ACTIVE, FEAT_POSVIS_RUN, FEAT_POSVIS_USE, FEAT_NOLOOK, FEAT_IMSAVE, FEAT_NOSAFETY);
+          }
+        }
+        fclose(paramFile);
+      }
+
+      printf("\nSettings:\n -----\n FEAT_TIME: %d \n FEAT_OF_ACTIVE: %d \n FEAT_POSVIS_RUN: %d \n FEAT_POSVIS_USE: %d \n FEAT_NOLOOK: %d \n FEAT_IMSAVE: %d \n FEAT_NOSAFETY: %d \n -----\n", FEAT_TIME, FEAT_OF_ACTIVE, FEAT_POSVIS_RUN, FEAT_POSVIS_USE, FEAT_NOLOOK, FEAT_IMSAVE, FEAT_NOSAFETY);
 
 
         //ptiming - init file
         //------------
-        ptimer_init(FEAT_TIME, __func__, &(ptfile), &(run_flag));
+      ptimer_init(FEAT_TIME, __func__, &(ptfile), &(run_flag));
         //------------
 
 
 
         //init reference Server Communication
         //-----
-        printf("Waiting for connection to reference value server... \n");
+      printf("Waiting for connection to reference value server... \n");
 
-        if((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-        {
-            printf("\n ERROR : Could not create socket \n");
-            exit(0);
-        }
+      if((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+      {
+        printf("\n ERROR : Could not create socket \n");
+        exit(0);
+      }
 
-        memset(&serv_addr, '0', sizeof(serv_addr));
+      memset(&serv_addr, '0', sizeof(serv_addr));
 
-        serv_addr.sin_family = AF_INET;
-        serv_addr.sin_port = htons(12345);
+      serv_addr.sin_family = AF_INET;
+      serv_addr.sin_port = htons(12345);
 
-        if(inet_pton(AF_INET, serverIP, &serv_addr.sin_addr) <= 0)
-        {
-            printf("ERROR inet_pton error occured (connection to reference value server) \n");
-            exit(0);
-        }
+      if(inet_pton(AF_INET, serverIP, &serv_addr.sin_addr) <= 0)
+      {
+        printf("ERROR inet_pton error occured (connection to reference value server) \n");
+        exit(0);
+      }
 
-        if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
-        {
-            printf("ERROR Connection to reference value server failed \n");
-            serverstatus = 1;
-            exit(0);
-        }
-        else
-        {
-            printf("Connected to reference value server! \n");
-        }
+      if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+      {
+        printf("ERROR Connection to reference value server failed \n");
+        serverstatus = 1;
+        exit(0);
+      }
+      else
+      {
+        printf("Connected to reference value server! \n");
+      }
 
 
 
@@ -1013,11 +1013,11 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
         printf ("Power-Gain %f \n",powerGain_eparam);
         */
 
-    }
+      }
 
     //Initialize inter-thread communication
-    else if(counter == 2)
-    {
+      else if(counter == 2)
+      {
 
         //Initialize communication with optical flow thread
         //-------
@@ -1028,20 +1028,20 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
 
         if(FEAT_OF_ACTIVE)
         {
-            read(of_fifo, (float*)(&of_data), sizeof(of_data));
-            if(of_fifo < 0)
-            {
-                printf("WARNING optical flow might not be running, %d!\n\n", of_fifo);
-            }
-            else
-            {
-                printf("Got optical flow connection, %d!\n", of_fifo);
-            }
+          read(of_fifo, (float*)(&of_data), sizeof(of_data));
+          if(of_fifo < 0)
+          {
+            printf("WARNING optical flow might not be running, %d!\n\n", of_fifo);
+          }
+          else
+          {
+            printf("Got optical flow connection, %d!\n", of_fifo);
+          }
 
         }
         else
         {
-            printf("Optical Flow deactivated! \n");
+          printf("Optical Flow deactivated! \n");
         }
 
 
@@ -1054,19 +1054,19 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
 
         if(FEAT_POSVIS_RUN)
         {
-            read(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
-            if(vis_fifo < 0)
-            {
-                printf("WARNING image processing might not be running, %d!\n", vis_fifo);
-            }
-            else
-            {
-                printf("Got image processing connection, %d !\n", vis_fifo);
-            }
+          read(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
+          if(vis_fifo < 0)
+          {
+            printf("WARNING image processing might not be running, %d!\n", vis_fifo);
+          }
+          else
+          {
+            printf("Got image processing connection, %d !\n", vis_fifo);
+          }
         }
         else
         {
-            printf("POSVIS computations deactivated! \n");
+          printf("POSVIS computations deactivated! \n");
         };
 
 
@@ -1084,12 +1084,12 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
 
         //Activate motors
         out->command = BLDC_CMD_START;
-    }
+      }
 
 
     //s1: Record calibration data
-    else if(counter < calibCycles)
-    {
+      else if(counter < calibCycles)
+      {
         sensorCal[0] = sensorCal[0] * (counter - 1) / counter + in->HAL_acc_SI.x / counter;
         sensorCal[1] = sensorCal[1] * (counter - 1) / counter + in->HAL_acc_SI.y / counter;
         sensorCal[2] = sensorCal[2] * (counter - 1) / counter + in->HAL_acc_SI.z / counter;
@@ -1112,25 +1112,25 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
         out->motors_speed[3] = 0;
         out->command = BLDC_CMD_STOP;
         return;
-    }
+      }
 
     //s2: Initialize dynamic model for control
-    else if(counter == calibCycles)
-    {
+      else if(counter == calibCycles)
+      {
         printf("Batterylevel: %f\n", battLevelAvg);
         printf("Sensorcal: %f :: %f :: %f :: %f :: %f :: %f :: %f \n", sensorCal[0], sensorCal[1], 9.81 + sensorCal[2], sensorCal[3], sensorCal[4], sensorCal[5], sensorCal[6]);
 
         //Stop if angled take-off
         if((!FEAT_NOSAFETY) && abs(9.81 + sensorCal[2]) > 0.7)
         {
-            run_flag = 0;
-            printf("ERROR: Please take off from a level surface! \n");
-            out->motors_speed[0] = 0;
-            out->motors_speed[1] = 0;
-            out->motors_speed[2] = 0;
-            out->motors_speed[3] = 0;
-            out->command = BLDC_CMD_STOP;
-            return;
+          run_flag = 0;
+          printf("ERROR: Please take off from a level surface! \n");
+          out->motors_speed[0] = 0;
+          out->motors_speed[1] = 0;
+          out->motors_speed[2] = 0;
+          out->motors_speed[3] = 0;
+          out->command = BLDC_CMD_STOP;
+          return;
         }
 
 
@@ -1146,87 +1146,87 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
 
         /* Initialize model */
         DroneRS_Compensator_initialize(DroneRS_Compensator_M,
-                                       &DroneRS_Compensator_U_controlModePosVSAtt_flagin,
-                                       DroneRS_Compensator_U_pos_refin, DroneRS_Compensator_U_attRS_refin,
-                                       &DroneRS_Compensator_U_ddx, &DroneRS_Compensator_U_ddy,
-                                       &DroneRS_Compensator_U_ddz, &DroneRS_Compensator_U_p,
-                                       &DroneRS_Compensator_U_q, &DroneRS_Compensator_U_r,
-                                       &DroneRS_Compensator_U_altitude_sonar, &DroneRS_Compensator_U_prs,
-                                       DroneRS_Compensator_U_opticalFlowRS_datin,
-                                       DroneRS_Compensator_U_sensordatabiasRS_datin,
-                                       DroneRS_Compensator_U_posVIS_datin, &DroneRS_Compensator_U_usePosVIS_flagin,
-                                       DroneRS_Compensator_U_batteryStatus_datin,
-                                       DroneRS_Compensator_Y_motorsRS_cmdout, &DroneRS_Compensator_Y_X,
-                                       &DroneRS_Compensator_Y_Y, &DroneRS_Compensator_Y_Z,
-                                       &DroneRS_Compensator_Y_yaw, &DroneRS_Compensator_Y_pitch,
-                                       &DroneRS_Compensator_Y_roll, &DroneRS_Compensator_Y_dx,
-                                       &DroneRS_Compensator_Y_dy, &DroneRS_Compensator_Y_dz,
-                                       &DroneRS_Compensator_Y_pb, &DroneRS_Compensator_Y_qb,
-                                       &DroneRS_Compensator_Y_rb,
-                                       &DroneRS_Compensator_Y_controlModePosVSAtt_flagout,
-                                       DroneRS_Compensator_Y_poseRS_refout, &DroneRS_Compensator_Y_ddxb,
-                                       &DroneRS_Compensator_Y_ddyb, &DroneRS_Compensator_Y_ddzb,
-                                       &DroneRS_Compensator_Y_pa, &DroneRS_Compensator_Y_qa,
-                                       &DroneRS_Compensator_Y_ra, &DroneRS_Compensator_Y_altitude_sonarb,
-                                       &DroneRS_Compensator_Y_prsb, DroneRS_Compensator_Y_opticalFlowRS_datout,
-                                       DroneRS_Compensator_Y_sensordatabiasRS_datout,
-                                       DroneRS_Compensator_Y_posVIS_datout,
-                                       &DroneRS_Compensator_Y_usePosVIS_flagout,
-                                       DroneRS_Compensator_Y_batteryStatus_datout);
+         &DroneRS_Compensator_U_controlModePosVSAtt_flagin,
+         DroneRS_Compensator_U_pos_refin, DroneRS_Compensator_U_attRS_refin,
+         &DroneRS_Compensator_U_ddx, &DroneRS_Compensator_U_ddy,
+         &DroneRS_Compensator_U_ddz, &DroneRS_Compensator_U_p,
+         &DroneRS_Compensator_U_q, &DroneRS_Compensator_U_r,
+         &DroneRS_Compensator_U_altitude_sonar, &DroneRS_Compensator_U_prs,
+         DroneRS_Compensator_U_opticalFlowRS_datin,
+         DroneRS_Compensator_U_sensordatabiasRS_datin,
+         DroneRS_Compensator_U_posVIS_datin, &DroneRS_Compensator_U_usePosVIS_flagin,
+         DroneRS_Compensator_U_batteryStatus_datin,
+         DroneRS_Compensator_Y_motorsRS_cmdout, &DroneRS_Compensator_Y_X,
+         &DroneRS_Compensator_Y_Y, &DroneRS_Compensator_Y_Z,
+         &DroneRS_Compensator_Y_yaw, &DroneRS_Compensator_Y_pitch,
+         &DroneRS_Compensator_Y_roll, &DroneRS_Compensator_Y_dx,
+         &DroneRS_Compensator_Y_dy, &DroneRS_Compensator_Y_dz,
+         &DroneRS_Compensator_Y_pb, &DroneRS_Compensator_Y_qb,
+         &DroneRS_Compensator_Y_rb,
+         &DroneRS_Compensator_Y_controlModePosVSAtt_flagout,
+         DroneRS_Compensator_Y_poseRS_refout, &DroneRS_Compensator_Y_ddxb,
+         &DroneRS_Compensator_Y_ddyb, &DroneRS_Compensator_Y_ddzb,
+         &DroneRS_Compensator_Y_pa, &DroneRS_Compensator_Y_qa,
+         &DroneRS_Compensator_Y_ra, &DroneRS_Compensator_Y_altitude_sonarb,
+         &DroneRS_Compensator_Y_prsb, DroneRS_Compensator_Y_opticalFlowRS_datout,
+         DroneRS_Compensator_Y_sensordatabiasRS_datout,
+         DroneRS_Compensator_Y_posVIS_datout,
+         &DroneRS_Compensator_Y_usePosVIS_flagout,
+         DroneRS_Compensator_Y_batteryStatus_datout);
 
         //-------------------
         //-------------------
 
         //init optical flow and vision outputport in case that functionality is deactivated
-        DroneRS_Compensator_U_posVIS_datin[0] = NO_VIS_X;
-        DroneRS_Compensator_U_posVIS_datin[1] = 0.0;
-        DroneRS_Compensator_U_posVIS_datin[2] = 0.0;
-        DroneRS_Compensator_U_posVIS_datin[3] = 0.0;
+DroneRS_Compensator_U_posVIS_datin[0] = NO_VIS_X;
+DroneRS_Compensator_U_posVIS_datin[1] = 0.0;
+DroneRS_Compensator_U_posVIS_datin[2] = 0.0;
+DroneRS_Compensator_U_posVIS_datin[3] = 0.0;
 
         //check if image processing up and running
-        if((FEAT_POSVIS_RUN) && (vis_fifo < 0))
-        {
+if((FEAT_POSVIS_RUN) && (vis_fifo < 0))
+{
             vis_fifo = open("/tmp/vis_fifo", O_RDONLY); //O_NONBLOCK O_RDONLY
             fcntl(vis_fifo, F_SETFL, fcntl(vis_fifo, F_GETFL) | O_NONBLOCK);
             if(vis_fifo < 0) printf("WARNING image processing not connected!\n");
-        }
+          }
 
         //check if optical flow up and running
-        if((FEAT_OF_ACTIVE) && (of_fifo < 0))
-        {
+          if((FEAT_OF_ACTIVE) && (of_fifo < 0))
+          {
             of_fifo = open("/tmp/of_fifo", O_RDONLY); //O_NONBLOCK O_RDONLY
             fcntl(of_fifo, F_SETFL, fcntl(of_fifo, F_GETFL) | O_NONBLOCK);
             if(of_fifo < 0) printf("ERROR optical flow not running!\n");
             run_flag = 0;
-        }
+          }
 
         //input sensor biases into model
-        DroneRS_Compensator_U_sensordatabiasRS_datin[0] = sensorCal[0];
-        DroneRS_Compensator_U_sensordatabiasRS_datin[1] = sensorCal[1];
-        DroneRS_Compensator_U_sensordatabiasRS_datin[2] = 9.81 + sensorCal[2];
-        DroneRS_Compensator_U_sensordatabiasRS_datin[3] = sensorCal[3];
-        DroneRS_Compensator_U_sensordatabiasRS_datin[4] = sensorCal[4];
-        DroneRS_Compensator_U_sensordatabiasRS_datin[5] = sensorCal[5];
-        DroneRS_Compensator_U_sensordatabiasRS_datin[6] = sensorCal[6];
+          DroneRS_Compensator_U_sensordatabiasRS_datin[0] = sensorCal[0];
+          DroneRS_Compensator_U_sensordatabiasRS_datin[1] = sensorCal[1];
+          DroneRS_Compensator_U_sensordatabiasRS_datin[2] = 9.81 + sensorCal[2];
+          DroneRS_Compensator_U_sensordatabiasRS_datin[3] = sensorCal[3];
+          DroneRS_Compensator_U_sensordatabiasRS_datin[4] = sensorCal[4];
+          DroneRS_Compensator_U_sensordatabiasRS_datin[5] = sensorCal[5];
+          DroneRS_Compensator_U_sensordatabiasRS_datin[6] = sensorCal[6];
 
         //Display beginning of relevant data output on screen
         //printf("Data_block_start\n");
 
         //Power motors, velocity 0
-        out->command = BLDC_CMD_RUN;
+          out->command = BLDC_CMD_RUN;
 
-    }
+        }
 
     //s3: Fly
-    else if(counter <= onCycles)
-    {
+        else if(counter <= onCycles)
+        {
 
         //Tune settings to flight mode
         //----------
 
         //3.1 take off-setting
-        if(counter < calibCycles + takeoffCycles)
-        {
+          if(counter < calibCycles + takeoffCycles)
+          {
             powerGain = powerGain_eparam;
             DroneRS_Compensator_U_pos_refin[2] = 1; //enables take-off procedure, disables altitude-control
 
@@ -1242,71 +1242,71 @@ void RSEDU_control(HAL_acquisition_t* hal_sensors_data, HAL_command_t* hal_senso
                 out->motors_speed[3] = 0;
                 out->command = BLDC_CMD_STOP;
                 return;*/
+              }
             }
-        }
 
         //3.2 transition to actual flight: enable altitude-control setting
-        else if(counter == calibCycles + takeoffCycles)
-        {
-            DroneRS_Compensator_U_pos_refin[2] = -1.1;
-        }
+            else if(counter == calibCycles + takeoffCycles)
+            {
+              DroneRS_Compensator_U_pos_refin[2] = -1.1;
+            }
         //3.3 actual flight setting
-        else if(counter < onCycles)
-        {
-            powerGain = powerGain_eparam;
+            else if(counter < onCycles)
+            {
+              powerGain = powerGain_eparam;
 
             //Read from reference value server
-            fcntl(sockfd, F_SETFL, O_NONBLOCK);
-            memset(recvBuff, '\0', sizeof(recvBuff));
-            recv(sockfd, recvBuff, sizeof(recvBuff), O_NONBLOCK);
+              fcntl(sockfd, F_SETFL, O_NONBLOCK);
+              memset(recvBuff, '\0', sizeof(recvBuff));
+              recv(sockfd, recvBuff, sizeof(recvBuff), O_NONBLOCK);
 
 
             //Input to Model: reference values
 
-            if((recvBuff[0]) != '\0')
-            {
+              if((recvBuff[0]) != '\0')
+              {
                 sscanf(recvBuff, "%i %i %i %i %i", &run_flag, &pitch_ref_buff, &roll_ref_buff, &yaw_ref_buff, &alt_ref_buff);
                 DroneRS_Compensator_U_attRS_refin[0] = (double)((yaw_ref_buff - 10000) / 1000.0);
                 DroneRS_Compensator_U_attRS_refin[1] = (double)((pitch_ref_buff - 10000) / 1000.0);
                 DroneRS_Compensator_U_attRS_refin[2] = (double)((roll_ref_buff - 10000) / 1000.0);
                 if(((double)(alt_ref_buff / 100.0)) >= -4.0)
                 {
-                    DroneRS_Compensator_U_pos_refin[2]    = (double)(alt_ref_buff / 100.0);
+                  DroneRS_Compensator_U_pos_refin[2]    = (double)(alt_ref_buff / 100.0);
                 }
-            }
+              }
 
 
             // Erlend
 
-        	
-if (vis_fifo> 0){
-            if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
-            {
-              
-                DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/3;
-                DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/3; //+ 0.03; //DroneRS_Compensator_U_attRS_refin[0]/3
+
+              if (vis_fifo> 0){
+                if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
+                {
+
+                  DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/3;
+                DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/3; //+ 0.03 can be added to get rid of drift bias
 
 
-     		//if (counter % 200)
-          //    	printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
+                if (counter % 200)
+                  printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
 
+              }
             }
-}
 
             if((DroneRS_Compensator_U_attRS_refin[1] == 0.0) && (DroneRS_Compensator_U_attRS_refin[2] == 0.0))
                 //control position + velocity if no specific reference attitude given (yaw angle ok)
                 DroneRS_Compensator_U_controlModePosVSAtt_flagin = 1; //1 ; 1 position reference, 0 angle reference
-            else
+              else
                 //angle control
                 DroneRS_Compensator_U_controlModePosVSAtt_flagin = 0; //0 ; 1 position reference, 0 angle reference
 
 
             //use of position estimate from vision
-            DroneRS_Compensator_U_usePosVIS_flagin = FEAT_POSVIS_USE;
+              DroneRS_Compensator_U_usePosVIS_flagin = FEAT_POSVIS_USE;
 
             //React to possible Flight abort request
-            if(run_flag == 0)
-            {
+              if(run_flag == 0)
+              {
                 printf("Flight abort request: shutting down motors now\n");
                 out->motors_speed[0] = 0;
                 out->motors_speed[1] = 0;
@@ -1314,15 +1314,15 @@ if (vis_fifo> 0){
                 out->motors_speed[3] = 0;
                 out->command = BLDC_CMD_STOP;
                 return;
+              }
+
             }
 
-        }
-
         //3.4 init to stop flight (because of end of flight duration)
-        else
-        {
-            powerGain = 0;
-        };
+            else
+            {
+              powerGain = 0;
+            };
 
 
 
@@ -1331,81 +1331,81 @@ if (vis_fifo> 0){
         //---------------------
 
         //safety abort for high accelerations or position
-        if(((!FEAT_NOSAFETY) && ((abs(in->HAL_acc_SI.x) > MAX_ACCELL) || (abs(in->HAL_acc_SI.y) > MAX_ACCELL) || (in->HAL_acc_SI.z > 0)))
-                ||
-                ((FEAT_NOSAFETY) && ((abs(in->HAL_acc_SI.x) > MAX_ACCELL * 3) || (abs(in->HAL_acc_SI.y) > MAX_ACCELL * 3)))
-                ||
-                ((abs(DroneRS_Compensator_Y_X) > MAX_RANGE) || (abs(DroneRS_Compensator_Y_Y) > MAX_RANGE))
-          )
-        {
-            run_flag = 0;
-            if(((abs(DroneRS_Compensator_Y_X) > MAX_RANGE) || (abs(DroneRS_Compensator_Y_Y) > MAX_RANGE))) printf("Drone out of range: shutting down motors now\n");
-            else printf("Flight crash detected (accelerometer): shutting down motors now\n");
+            if(((!FEAT_NOSAFETY) && ((abs(in->HAL_acc_SI.x) > MAX_ACCELL) || (abs(in->HAL_acc_SI.y) > MAX_ACCELL) || (in->HAL_acc_SI.z > 0)))
+              ||
+              ((FEAT_NOSAFETY) && ((abs(in->HAL_acc_SI.x) > MAX_ACCELL * 3) || (abs(in->HAL_acc_SI.y) > MAX_ACCELL * 3)))
+              ||
+              ((abs(DroneRS_Compensator_Y_X) > MAX_RANGE) || (abs(DroneRS_Compensator_Y_Y) > MAX_RANGE))
+              )
+            {
+              run_flag = 0;
+              if(((abs(DroneRS_Compensator_Y_X) > MAX_RANGE) || (abs(DroneRS_Compensator_Y_Y) > MAX_RANGE))) printf("Drone out of range: shutting down motors now\n");
+              else printf("Flight crash detected (accelerometer): shutting down motors now\n");
 
-            out->motors_speed[0] = 0;
-            out->motors_speed[1] = 0;
-            out->motors_speed[2] = 0;
-            out->motors_speed[3] = 0;
-            out->command = BLDC_CMD_STOP;
-            return;
-        }
+              out->motors_speed[0] = 0;
+              out->motors_speed[1] = 0;
+              out->motors_speed[2] = 0;
+              out->motors_speed[3] = 0;
+              out->command = BLDC_CMD_STOP;
+              return;
+            }
         //safety abort due to low battery in flight
-        if((DroneRS_Compensator_U_batteryStatus_datin[1] < MIN_BATT) && (DroneRS_Compensator_U_batteryStatus_datin[1] > 1.0))
-        {
+            if((DroneRS_Compensator_U_batteryStatus_datin[1] < MIN_BATT) && (DroneRS_Compensator_U_batteryStatus_datin[1] > 1.0))
+            {
             //run_flag = 0;
-            printf("Flight aborted due to low voltage (%f %%): shutting down motors now, charge battery!\n", DroneRS_Compensator_U_batteryStatus_datin[1]);
+              printf("Flight aborted due to low voltage (%f %%): shutting down motors now, charge battery!\n", DroneRS_Compensator_U_batteryStatus_datin[1]);
             /*out->motors_speed[0] = 0;
             out->motors_speed[1] = 0;
             out->motors_speed[2] = 0;
             out->motors_speed[3] = 0;
             out->command = BLDC_CMD_STOP;
             return;*/
-        };
+          };
 
 
         //Input to Model: optical flow computations (setup as zero-order hold: no updates on static var when nothing new in fifo)
-        if((FEAT_OF_ACTIVE) && (of_fifo > 0))
-        {
+          if((FEAT_OF_ACTIVE) && (of_fifo > 0))
+          {
             //usleep(100);
             //read(of_fifo,(float*)(&of_data),sizeof(of_data));
             //close(of_fifo);
 
             if((read(of_fifo, (float*)(&of_data), sizeof(of_data)) > 0) && ((of_data[0] != 0.0) || (of_data[1] != 0.0)))
             {
-                ofQuality = of_data[3];
-                ofDefined = of_data[4];
-                if(ofQuality > 0)
-                {
-                    counter_noOF = 0;
-                    DroneRS_Compensator_U_opticalFlowRS_datin[0] = (double)of_data[0];
-                    DroneRS_Compensator_U_opticalFlowRS_datin[1] = (double)of_data[1];
-                    DroneRS_Compensator_U_opticalFlowRS_datin[2] = (double)of_data[2];
+              ofQuality = of_data[3];
+              ofDefined = of_data[4];
+              if(ofQuality > 0)
+              {
+                counter_noOF = 0;
+                DroneRS_Compensator_U_opticalFlowRS_datin[0] = (double)of_data[0];
+                DroneRS_Compensator_U_opticalFlowRS_datin[1] = (double)of_data[1];
+                DroneRS_Compensator_U_opticalFlowRS_datin[2] = (double)of_data[2];
                     //printf("of: %f %f %f \n",of_data[0],of_data[1],of_data[2]);
-                }
+              }
             }
             else
             {
-                if(counter > (calibCycles + takeoffCycles))
-                {
-                    counter_noOF += 1;
+              if(counter > (calibCycles + takeoffCycles))
+              {
+                counter_noOF += 1;
 
-                    if(counter_noOF >= MAX_noOF)
-                    {
-                        run_flag = 0;
-                        printf("Problem with optical flow, there has been no flow for %d cycles in cycle %d: shutting down motors now\n", counter_noOF, counter);
-                        out->motors_speed[0] = 0;
-                        out->motors_speed[1] = 0;
-                        out->motors_speed[2] = 0;
-                        out->motors_speed[3] = 0;
-                        out->command = BLDC_CMD_STOP;
-                        return;
-                    }
+                if(counter_noOF >= MAX_noOF)
+                {
+                  run_flag = 0;
+                  printf("Problem with optical flow, there has been no flow for %d cycles in cycle %d: shutting down motors now\n", counter_noOF, counter);
+                  out->motors_speed[0] = 0;
+                  out->motors_speed[1] = 0;
+                  out->motors_speed[2] = 0;
+                  out->motors_speed[3] = 0;
+                  out->command = BLDC_CMD_STOP;
+                  return;
                 }
+              }
 
 
             };
 
-        }
+          }
 
         /*//safety abort for high mismatch OF vs state velocities
         if(
@@ -1429,100 +1429,100 @@ if (vis_fifo> 0){
         }*/
 
         //Input to Model: image processing computations (DONOT setup as zero-order hold (pos_x -99.0 when no position available))
-        if((FEAT_POSVIS_RUN) && (vis_fifo > 0))
-        {
-
-            if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
+            if((FEAT_POSVIS_RUN) && (vis_fifo > 0))
             {
+
+              if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
+              {
                 DroneRS_Compensator_U_posVIS_datin[0] =  -99.0;//(double)vis_data[0]; // Had some trouble with optical flow
                 DroneRS_Compensator_U_posVIS_datin[1] = (double)vis_data[1];
                 DroneRS_Compensator_U_posVIS_datin[2] = (double)vis_data[2];
                 DroneRS_Compensator_U_posVIS_datin[3] = (double)vis_data[3];
 
-            }
-            else
-            {
+              }
+              else
+              {
                 DroneRS_Compensator_U_posVIS_datin[0] = NO_VIS_X;
                 DroneRS_Compensator_U_posVIS_datin[1] = 0.0;
                 DroneRS_Compensator_U_posVIS_datin[2] = 0.0;
                 DroneRS_Compensator_U_posVIS_datin[3] = 0.0;
+              }
+
             }
 
-        }
-
         //Input to Model: sensor signals
-        DroneRS_Compensator_U_ddx 	= in->HAL_acc_SI.x;
-        DroneRS_Compensator_U_ddy 	= in->HAL_acc_SI.y;
-        DroneRS_Compensator_U_ddz 	= in->HAL_acc_SI.z;
-        DroneRS_Compensator_U_p 	= in->HAL_gyro_SI.x;
-        DroneRS_Compensator_U_q 	= in->HAL_gyro_SI.y;
-        DroneRS_Compensator_U_r		= in->HAL_gyro_SI.z;
-        DroneRS_Compensator_U_altitude_sonar	= in->HAL_ultrasound_SI.altitude;
-        DroneRS_Compensator_U_prs 	= in->HAL_pressure_SI.pressure;
+            DroneRS_Compensator_U_ddx 	= in->HAL_acc_SI.x;
+            DroneRS_Compensator_U_ddy 	= in->HAL_acc_SI.y;
+            DroneRS_Compensator_U_ddz 	= in->HAL_acc_SI.z;
+            DroneRS_Compensator_U_p 	= in->HAL_gyro_SI.x;
+            DroneRS_Compensator_U_q 	= in->HAL_gyro_SI.y;
+            DroneRS_Compensator_U_r		= in->HAL_gyro_SI.z;
+            DroneRS_Compensator_U_altitude_sonar	= in->HAL_ultrasound_SI.altitude;
+            DroneRS_Compensator_U_prs 	= in->HAL_pressure_SI.pressure;
 
-        DroneRS_Compensator_U_batteryStatus_datin[0] = in->HAL_vbat_SI.vbat_V;
-        DroneRS_Compensator_U_batteryStatus_datin[1] = (double)((int)in->HAL_vbat_SI.vbat_percentage);
+            DroneRS_Compensator_U_batteryStatus_datin[0] = in->HAL_vbat_SI.vbat_V;
+            DroneRS_Compensator_U_batteryStatus_datin[1] = (double)((int)in->HAL_vbat_SI.vbat_percentage);
 
         // compute control commands
-        char* error = rtmGetErrorStatus(DroneRS_Compensator_M);
-        if(!error)
-        {
-            rt_OneStep(DroneRS_Compensator_M);
-        }
-        else
-        {
-            run_flag = 0;
-            printf("ERROR: Error from simulink model @ counter=%i !\n\t%s", counter, error);
-            out->motors_speed[0] = 0;
-            out->motors_speed[1] = 0;
-            out->motors_speed[2] = 0;
-            out->motors_speed[3] = 0;
-            out->command = BLDC_CMD_STOP;
-            return;
-        }
+            char* error = rtmGetErrorStatus(DroneRS_Compensator_M);
+            if(!error)
+            {
+              rt_OneStep(DroneRS_Compensator_M);
+            }
+            else
+            {
+              run_flag = 0;
+              printf("ERROR: Error from simulink model @ counter=%i !\n\t%s", counter, error);
+              out->motors_speed[0] = 0;
+              out->motors_speed[1] = 0;
+              out->motors_speed[2] = 0;
+              out->motors_speed[3] = 0;
+              out->command = BLDC_CMD_STOP;
+              return;
+            }
 
         //power engines
-        if(counter < onCycles)
-        {
-            out->command = BLDC_CMD_RUN;
-        }
-        else
-        {
-            out->command = BLDC_CMD_STOP;
-            return;
-        };
+            if(counter < onCycles)
+            {
+              out->command = BLDC_CMD_RUN;
+            }
+            else
+            {
+              out->command = BLDC_CMD_STOP;
+              return;
+            };
 
 
         // update motor commands with control commands
-        out->motors_speed[0] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[0])));
-        out->motors_speed[1] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[1])));
-        out->motors_speed[2] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[2])));
-        out->motors_speed[3] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[3])));
-        usleep(100);
+            out->motors_speed[0] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[0])));
+            out->motors_speed[1] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[1])));
+            out->motors_speed[2] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[2])));
+            out->motors_speed[3] = (int)(powerGain * (abs(DroneRS_Compensator_Y_motorsRS_cmdout[3])));
+            usleep(100);
         //printf("motorcmd: %d\n",out->motors_speed[0]);
 
-    }
+          }
 
     //s4.0 End flight: log data and close program
 
     else //counter=durTest+1
     {
         /* Matfile logging save*/
-        printf("Saving logged data at end of flight... \n");
-        rt_StopDataLogging(MATFILE, DroneRS_Compensator_M->rtwLogInfo);
-        if(FEAT_OF_ACTIVE)
-        {
-            close(of_fifo);
-        }
-        printf("Saving logged data... DONE \n");
+      printf("Saving logged data at end of flight... \n");
+      rt_StopDataLogging(MATFILE, DroneRS_Compensator_M->rtwLogInfo);
+      if(FEAT_OF_ACTIVE)
+      {
+        close(of_fifo);
+      }
+      printf("Saving logged data... DONE \n");
 
-        if(FEAT_TIME)
-        {
-            fclose(ptfile);
-        }
+      if(FEAT_TIME)
+      {
+        fclose(ptfile);
+      }
 
 
-        exit(0);
+      exit(0);
     }
 
 
@@ -1534,4 +1534,4 @@ if (vis_fifo> 0){
     ptimer_stopstore(FEAT_TIME, counter, start, ptfile);
     //----------
 
-}
+  }
