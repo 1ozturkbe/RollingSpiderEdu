@@ -423,74 +423,78 @@ if(FEAT_IMSAVE == 2)
 
     }
 
+    // Commented out code is for the simple calculation of yaw error
+
     if (counter % 5 == 0)
     {  
     	float ymoment = 0;
     	float ymass = 0;
     	float cob;
     	float y=0;
-    //float ytemp;
-    //float middleY;
 
-    // Calculate center of white: cob = ymoment/ymass - nx/2
-    // y is the luminance
-    // Cutoff on 100 (y = 155). Seems like a good choice.
-    // 255 - luminance give black value
+    	//float ytemp;
+    	//float middleY;
+
+    	// Calculate center of blacc: cob = ymoment/ymass - nx/2
+    	// y is the blackness
+    	// (255 - luminance) gives the value of blackness
+    	// Cutoff on 70 (y = 185). Seems like a good choice after looking at the luminence values during drone runs.
+    	
     	for(i = 0; i < nx; i++)
     	{
-    		y = 255-(float)image[i].y1;
+    		y = 255-(float)image[i].y1; // Finds blackness
     		
-		/*if (ytemp>y){
-		y = ytemp;
-		cob = i-nx/2;
-		}*/
+			/*if (ytemp>y){
+			y = ytemp;
+			cob = i-nx/2;
+			}*/
 
-		if (y > 185){
-			ymoment += y*i;
-			ymass += y;
+			if (y > 185)
+			{
+				ymoment += y*i;
+				ymass += y;
+			}
 		}
-	}
 
+    	//middleY = (float)image[60*80+40].y1;
 
-	
+    	if (ymass < 300) // Black line not detected
+    	{
+    		camerayaw = 0.1; // A small change in hope of finding the line again
+    	}
+    	else if (1000 < ymass) // Too close to ground
+    	{
+    		camerayaw = 0;
+    	}
 
-    //middleY = (float)image[60*80+40].y1;
-    if (ymass < 300) // Black line not detected
-    {
-    	camerayaw = 0.1; // A small change in hope of finding the line again
-    }
-else if (1000 < ymass) // Too close to ground
-{
-	camerayaw = 0;
-}
-else
-{
-	cob = ymoment/ymass - nx/2;
-		camerayaw = atan2(cob*4,ny); // camerayaw = invtan1(2*cow/(ny/2)) because of scaling of x values
-	}
+		else
+		{
+			cob = ymoment/ymass - nx/2;
+			camerayaw = atan2(cob*4,ny); // camerayaw = invtan1(2*cob/(ny/2)) because of scaling of x values
+		}
 
 	
-	if (counter % 60 == 0)
-	{ 
-    //printf("Whiteness of middle pixel: %f \n",middleY);
-		printf("Camerayaw: %f \n ymass: %f \n \n",camerayaw*180/3.14, ymass);
-	}
+		if (counter % 60 == 0)
+		{ 
+    		//printf("Whiteness of middle pixel: %f \n",middleY);
+			printf("Camerayaw: %f \n ymass: %f \n \n",camerayaw*180/3.14, ymass);
+		}
 	
         //compile data
-	vis_data[0] = -99;
-	vis_data[1] = -99;
-	vis_data[2] = -99;
-	vis_data[3] = camerayaw;
+		vis_data[0] = -99;
+		vis_data[1] = -99;
+		vis_data[2] = -99;
+		vis_data[3] = camerayaw;
 
-	vis_fifo = open("/tmp/vis_fifo", O_WRONLY);
+		vis_fifo = open("/tmp/vis_fifo", O_WRONLY);
 	
-	if(vis_fifo)
-	{
-		write(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
-		close(vis_fifo);
+		if(vis_fifo)
+		{
+			write(vis_fifo, (float*)(&vis_data), sizeof(vis_data));
+			close(vis_fifo);
+		}
+	
 	}
-	
-}
 
 
 usleep(4000);

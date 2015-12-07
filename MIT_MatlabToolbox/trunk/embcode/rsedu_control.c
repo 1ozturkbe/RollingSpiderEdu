@@ -1279,32 +1279,33 @@ if((FEAT_POSVIS_RUN) && (vis_fifo < 0))
             // Erlend
 
 
-              if (vis_fifo> 0){
-                if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
-                {
+if (vis_fifo> 0)
+  {
+    if((read(vis_fifo, (float*)(&vis_data), sizeof(vis_data)) > 0) && ((vis_data[0] != 0.0) || (vis_data[1]) || (vis_data[3])))
+    {
 
-                  DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/3;
-                DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/3; //+ 0.03 can be added to get rid of drift bias
+      DroneRS_Compensator_U_attRS_refin[0] =  (double)vis_data[3]/3;
+      DroneRS_Compensator_U_attRS_refin[2] = DroneRS_Compensator_U_attRS_refin[0]/3; //+ 0.03 can be added to get rid of drift bias
+
+      if (counter % 200)
+      {
+        printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
+      }
+    }
+  }
+
+if((DroneRS_Compensator_U_attRS_refin[1] == 0.0) && (DroneRS_Compensator_U_attRS_refin[2] == 0.0))
+  //control position + velocity if no specific reference attitude given (yaw angle ok)
+  DroneRS_Compensator_U_controlModePosVSAtt_flagin = 1; //1 ; 1 position reference, 0 angle reference
+else
+  //angle control
+  DroneRS_Compensator_U_controlModePosVSAtt_flagin = 0; //0 ; 1 position reference, 0 angle reference
 
 
-                if (counter % 200)
-                  printf("Attitude reference input (error): %f\n\n\n", (double)vis_data[3]);
+  //use of position estimate from vision
+  DroneRS_Compensator_U_usePosVIS_flagin = FEAT_POSVIS_USE;
 
-              }
-            }
-
-            if((DroneRS_Compensator_U_attRS_refin[1] == 0.0) && (DroneRS_Compensator_U_attRS_refin[2] == 0.0))
-                //control position + velocity if no specific reference attitude given (yaw angle ok)
-                DroneRS_Compensator_U_controlModePosVSAtt_flagin = 1; //1 ; 1 position reference, 0 angle reference
-              else
-                //angle control
-                DroneRS_Compensator_U_controlModePosVSAtt_flagin = 0; //0 ; 1 position reference, 0 angle reference
-
-
-            //use of position estimate from vision
-              DroneRS_Compensator_U_usePosVIS_flagin = FEAT_POSVIS_USE;
-
-            //React to possible Flight abort request
+  //React to possible Flight abort request
               if(run_flag == 0)
               {
                 printf("Flight abort request: shutting down motors now\n");
